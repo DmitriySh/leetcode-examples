@@ -3,11 +3,13 @@
  */
 package ru.shishmakov;
 
+import static ru.shishmakov.NumberOfIslands.DEFAULT_GRID;
+
 public class App {
     public void start(String param) {
         switch (param) {
             case "numberOfIslands": {
-                new NumberOfIslands().run();
+                new NumberOfIslands(DEFAULT_GRID).run();
                 break;
             }
             default: {

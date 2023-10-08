@@ -10,21 +10,30 @@ import java.util.Arrays;
  * <a href="https://leetcode.ca/2016-06-17-200-Number-of-Islands/">Number of islands: problem solution</a>
  */
 public class NumberOfIslands implements Runnable {
-
-    private final int[][] grid = new int[][]{
+    public static final int[][] DEFAULT_GRID = new int[][]{
             {1, 1, 0, 0, 1},
             {0, 1, 0, 0, 0},
             {1, 0, 1, 0, 0},
             {0, 0, 0, 1, 1},
     };
+    private final int[][] grid;
+    private int islands;
+
+    public NumberOfIslands(int[][] grid) {
+        this.grid = grid;
+    }
+
+    public int getIslands() {
+        return islands;
+    }
 
     @Override
     public void run() {
         System.out.println("Start counting number of islands...");
         printGrid(grid);
 
-        int islands = countIslands();
-        System.out.println("Result. Grid islands: " + islands);
+        this.islands = countIslands();
+        System.out.println("Result. Grid islands: " + this.islands);
     }
 
     private int countIslands() {

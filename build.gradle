@@ -11,25 +11,29 @@ plugins {
     id 'application'
 }
 
+application {
+    mainClass = 'ru.shishmakov.App'
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
-
-    // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
 }
 
-application {
-    // Define the main class for the application.
-    mainClass = 'ru.shishmakov.App'
-}
+build {
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+
+    test {
+        useJUnitPlatform()
+    }
 }
