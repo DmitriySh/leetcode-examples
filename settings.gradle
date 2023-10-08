@@ -8,4 +8,3 @@
  */
 
 rootProject.name = 'leetcode-examples'
-include('app')

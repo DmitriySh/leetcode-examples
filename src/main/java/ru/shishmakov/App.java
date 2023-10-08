@@ -3,8 +3,6 @@
  */
 package ru.shishmakov;
 
-import java.util.Objects;
-
 public class App {
     public void start(String param) {
         switch (param) {
@@ -13,13 +11,15 @@ public class App {
                 break;
             }
             default: {
-                throw new IllegalArgumentException("unavailable param: " + param);
+                throw new IllegalArgumentException("Unavailable param: " + param);
             }
         }
     }
 
     public static void main(String[] args) {
-        Objects.requireNonNull(args[0], "param is null");
+        if (args.length == 0) {
+            throw new IllegalStateException("No params in args array");
+        }
         new App().start(args[0]);
     }
 }
