@@ -52,17 +52,19 @@ public class NumberOfIslands implements Runnable {
      * 2 - marker of the previous step
      */
     private void dfs(int[][] grid, int r, int c) {
-        printFoundLand(grid, r, c);
-        int lastRow = grid.length - 1;
-        int lastCol = grid[0].length - 1;
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        if (r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] != 1) {
+            return;
+        }
 
         grid[r][c] = 2;
-        if (r >= 0 && r < lastRow && grid[r + 1][c] == 1) {
-            dfs(grid, r + 1, c);
-        }
-        if (c >= 0 && c < lastCol && grid[r][c + 1] == 1) {
-            dfs(grid, r, c + 1);
-        }
+        printFoundLand(grid, r, c);
+        dfs(grid, r + 1, c);
+        dfs(grid, r - 1, c);
+        dfs(grid, r, c + 1);
+        dfs(grid, r, c - 1);
     }
 
     private static void printFoundLand(int[][] grid, int r, int c) {
