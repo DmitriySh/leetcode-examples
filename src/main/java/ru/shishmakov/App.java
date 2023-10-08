@@ -4,14 +4,20 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.NumberOfIslands;
+import ru.shishmakov.problems.ValidParentheses;
 
 import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
+import static ru.shishmakov.problems.ValidParentheses.DEFAULT_PARENTHESES;
 
 public class App {
     public void start(String param) {
         switch (param) {
             case "numberOfIslands": {
                 new NumberOfIslands(DEFAULT_GRID).run();
+                break;
+            }
+            case "validParentheses": {
+                new ValidParentheses(DEFAULT_PARENTHESES).run();
                 break;
             }
             default: {
