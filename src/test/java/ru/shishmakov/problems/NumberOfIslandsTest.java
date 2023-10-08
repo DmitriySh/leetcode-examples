@@ -1,4 +1,4 @@
-package ru.shishmakov;
+package ru.shishmakov.problems;
 
 import org.junit.jupiter.api.Test;
 

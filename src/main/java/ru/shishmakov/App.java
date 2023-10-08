@@ -3,7 +3,9 @@
  */
 package ru.shishmakov;
 
-import static ru.shishmakov.NumberOfIslands.DEFAULT_GRID;
+import ru.shishmakov.problems.NumberOfIslands;
+
+import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
 
 public class App {
     public void start(String param) {

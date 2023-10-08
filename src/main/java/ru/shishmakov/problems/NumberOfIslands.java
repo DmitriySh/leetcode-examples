@@ -1,4 +1,4 @@
-package ru.shishmakov;
+package ru.shishmakov.problems;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
