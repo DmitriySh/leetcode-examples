@@ -15,9 +15,7 @@ public class NumberOfIslands implements Runnable {
     @Override
     public void run() {
         System.out.println("Start counting number of islands...");
-        for (int[] row : grid) {
-            System.out.println(Arrays.toString(row));
-        }
+        printGrid(grid);
 
         int islands = countIslands();
         System.out.println("Result. Grid islands: " + islands);
@@ -33,6 +31,7 @@ public class NumberOfIslands implements Runnable {
                 if (grid[r][c] == 1) {
                     islands++;
                     dfs(grid, r, c);
+                    printGrid(grid);
                 }
             }
         }
@@ -47,10 +46,7 @@ public class NumberOfIslands implements Runnable {
      * 2 - marker of the previous step
      */
     private void dfs(int[][] grid, int r, int c) {
-        System.out.println(MessageFormat.format(
-                "Found grid[{0}][{1}] = {2}",
-                r, c, grid[r][c]
-        ));
+        printFoundLand(grid, r, c);
         int lastRow = grid.length - 1;
         int lastCol = grid[0].length - 1;
 
@@ -61,5 +57,19 @@ public class NumberOfIslands implements Runnable {
         if (c >= 0 && c < lastCol && grid[r][c + 1] == 1) {
             dfs(grid, r, c + 1);
         }
+    }
+
+    private static void printFoundLand(int[][] grid, int r, int c) {
+        System.out.println(MessageFormat.format(
+                "Found grid[{0}][{1}] = {2}",
+                r, c, grid[r][c]
+        ));
+    }
+
+    private void printGrid(int[][] array) {
+        for (int[] row : array) {
+            System.out.println(Arrays.toString(row));
+        }
+        System.out.println(System.lineSeparator());
     }
 }
