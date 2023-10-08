@@ -3,12 +3,23 @@
  */
 package ru.shishmakov;
 
+import java.util.Objects;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public void start(String param) {
+        switch (param) {
+            case "numberOfIslands": {
+                new NumberOfIslands().run();
+                break;
+            }
+            default: {
+                throw new IllegalArgumentException("unavailable param: " + param);
+            }
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Objects.requireNonNull(args[0], "param is null");
+        new App().start(args[0]);
     }
 }
