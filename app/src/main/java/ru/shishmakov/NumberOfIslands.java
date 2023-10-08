@@ -3,6 +3,12 @@ package ru.shishmakov;
 import java.text.MessageFormat;
 import java.util.Arrays;
 
+/**
+ * Given a 2D grid map of '1's (land) and '0's (water), count the number of islands.
+ * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
+ * <p/>
+ * <a href="https://leetcode.ca/2016-06-17-200-Number-of-Islands/">Number of islands: problem solution</a>
+ */
 public class NumberOfIslands implements Runnable {
 
     private final int[][] grid = new int[][]{
