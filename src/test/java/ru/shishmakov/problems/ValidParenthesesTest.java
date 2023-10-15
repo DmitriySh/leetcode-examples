@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ValidParenthesesTest {
 
     @Test
-    void name1() {
+    void stringValidIfOpenedAndClosedParenthesesHaveNoError() {
         // given
         ValidParentheses parentheses = new ValidParentheses("()[{}]");
 
@@ -21,7 +21,7 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    void name2() {
+    void stringValidIfOpenedAndClosedParenthesesHaveNoError2() {
         // given
         ValidParentheses parentheses = new ValidParentheses("[(){}]");
 
@@ -35,7 +35,7 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    void name3() {
+    void stringInvalidIfOpenedAndClosedParenthesesHaveSequenceErrors() {
         // given
         ValidParentheses parentheses = new ValidParentheses("[({)]}");
 
@@ -49,7 +49,7 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    void name4() {
+    void stringInvalidIfClosedParenthesesAbsent() {
         // given
         ValidParentheses parentheses = new ValidParentheses("({[");
 
@@ -63,7 +63,7 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    void name5() {
+    void stringInvalidIfAllParenthesesAbsent() {
         // given
         ValidParentheses parentheses = new ValidParentheses("qwe");
 
@@ -77,7 +77,7 @@ public class ValidParenthesesTest {
     }
 
     @Test
-    void name6() {
+    void stringInvalidIfValueEmpty() {
         // given
         ValidParentheses parentheses = new ValidParentheses("");
 

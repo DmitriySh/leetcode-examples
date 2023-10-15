@@ -27,7 +27,7 @@ public class ValidParentheses implements Runnable {
         System.out.println("Start validating parentheses...");
         System.out.println("Parentheses: " + parentheses + System.lineSeparator());
 
-        this.valid = isValid(parentheses);
+        this.valid = validate(parentheses);
         System.out.println("Result. Parentheses is: " + (this.valid ? "valid" : "no valid"));
     }
 
@@ -35,7 +35,7 @@ public class ValidParentheses implements Runnable {
         return valid;
     }
 
-    private boolean isValid(String parentheses) {
+    private boolean validate(String parentheses) {
         if (parentheses.isEmpty()) {
             return false;
         }
