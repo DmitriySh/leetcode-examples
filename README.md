@@ -11,8 +11,9 @@ This is a code examples with my solutions for Leetcode problems.
 
 
 ## Solved problems
- * [200 - Number of Islands](https://leetcode.com/problems/number-of-islands/description/)
- * [20 - Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+ * [200 - Number of Islands](https://leetcode.com/problems/number-of-islands/description/) (counting the number of islands in the grid NxN)
+ * [20 - Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) (whether the string with parentheses is valid or not)
+ * [231 - Power of two](https://leetcode.com/problems/power-of-two/) (number is a power of two or not)
 
 
 ## Run:
@@ -24,7 +25,7 @@ BUILD SUCCESSFUL in 2s
 4 actionable tasks: 4 executed
 ```
 
- * start app
+ * start app with problem (example)
 ```bash
 ~$ java -jar ./build/libs/leetcode-examples.jar validParentheses
 Start validating parentheses...

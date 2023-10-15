@@ -4,9 +4,11 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.NumberOfIslands;
+import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.ValidParentheses;
 
 import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
+import static ru.shishmakov.problems.PowerOfTwo.DEFAULT_NUMBER;
 import static ru.shishmakov.problems.ValidParentheses.DEFAULT_PARENTHESES;
 
 public class App {
@@ -18,6 +20,10 @@ public class App {
             }
             case "validParentheses": {
                 new ValidParentheses(DEFAULT_PARENTHESES).run();
+                break;
+            }
+            case "powerOfTwo": {
+                new PowerOfTwo(DEFAULT_NUMBER).run();
                 break;
             }
             default: {
