@@ -1,15 +1,17 @@
 package ru.shishmakov.problems;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ValidParenthesesTest {
 
-    @Test
-    void stringValidIfOpenedAndClosedParenthesesHaveNoError() {
+    @ParameterizedTest(name = "parentheses {0} = true")
+    @ValueSource(strings = {"()[{}]", "[(){}]", "[]{}()", "()[]{}"})
+    void stringValidIfOpenedAndClosedParenthesesHaveNoError(String param) {
         // given
-        ValidParentheses parentheses = new ValidParentheses("()[{}]");
+        ValidParentheses parentheses = new ValidParentheses(param);
 
         // when
         parentheses.run();
@@ -20,66 +22,11 @@ public class ValidParenthesesTest {
                 .isTrue();
     }
 
-    @Test
-    void stringValidIfOpenedAndClosedParenthesesHaveNoError2() {
+    @ParameterizedTest(name = "parentheses {0} = false")
+    @ValueSource(strings = {"[({)]}", "({[", "()[{!}]", "qwe", ""})
+    void stringInvalidIfOpenedAndClosedParenthesesHaveSequenceErrors(String param) {
         // given
-        ValidParentheses parentheses = new ValidParentheses("[(){}]");
-
-        // when
-        parentheses.run();
-        boolean valid = parentheses.isValid();
-
-        // then
-        assertThat(valid)
-                .isTrue();
-    }
-
-    @Test
-    void stringInvalidIfOpenedAndClosedParenthesesHaveSequenceErrors() {
-        // given
-        ValidParentheses parentheses = new ValidParentheses("[({)]}");
-
-        // when
-        parentheses.run();
-        boolean valid = parentheses.isValid();
-
-        // then
-        assertThat(valid)
-                .isFalse();
-    }
-
-    @Test
-    void stringInvalidIfClosedParenthesesAbsent() {
-        // given
-        ValidParentheses parentheses = new ValidParentheses("({[");
-
-        // when
-        parentheses.run();
-        boolean valid = parentheses.isValid();
-
-        // then
-        assertThat(valid)
-                .isFalse();
-    }
-
-    @Test
-    void stringInvalidIfAllParenthesesAbsent() {
-        // given
-        ValidParentheses parentheses = new ValidParentheses("qwe");
-
-        // when
-        parentheses.run();
-        boolean valid = parentheses.isValid();
-
-        // then
-        assertThat(valid)
-                .isFalse();
-    }
-
-    @Test
-    void stringInvalidIfValueEmpty() {
-        // given
-        ValidParentheses parentheses = new ValidParentheses("");
+        ValidParentheses parentheses = new ValidParentheses(param);
 
         // when
         parentheses.run();
