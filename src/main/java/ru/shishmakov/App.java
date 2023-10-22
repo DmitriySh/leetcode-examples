@@ -5,10 +5,11 @@ package ru.shishmakov;
 
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.PowerOfTwo;
+import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidParentheses;
 
 import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
-import static ru.shishmakov.problems.PowerOfTwo.DEFAULT_NUMBER;
+import static ru.shishmakov.problems.Search2DMatrix.DEFAULT_MATRIX;
 import static ru.shishmakov.problems.ValidParentheses.DEFAULT_PARENTHESES;
 
 public class App {
@@ -23,7 +24,11 @@ public class App {
                 break;
             }
             case "powerOfTwo": {
-                new PowerOfTwo(DEFAULT_NUMBER).run();
+                new PowerOfTwo(PowerOfTwo.DEFAULT_NUMBER).run();
+                break;
+            }
+            case "search2DMatrix": {
+                new Search2DMatrix(DEFAULT_MATRIX, Search2DMatrix.DEFAULT_NUMBER).run();
                 break;
             }
             default: {
