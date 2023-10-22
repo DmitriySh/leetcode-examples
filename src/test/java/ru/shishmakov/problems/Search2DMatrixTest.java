@@ -25,6 +25,24 @@ public class Search2DMatrixTest {
     }
 
     @Test
+    void shouldFoundNumberInMatrixIfAvailable2() {
+        // given
+        Search2DMatrix search2DMatrix = new Search2DMatrix(new int[][]{
+                {-11, -5, -1, 7},
+                {10, 11, 16, 20},
+                {23, 30, 34, 60},
+        }, -5);
+
+        // when
+        search2DMatrix.run();
+        boolean found = search2DMatrix.isFound();
+
+        // then
+        assertThat(found)
+                .isTrue();
+    }
+
+    @Test
     void shouldNotFoundNumberInMatrixIfNotAvailable() {
         // given
         Search2DMatrix search2DMatrix = new Search2DMatrix(new int[][]{
