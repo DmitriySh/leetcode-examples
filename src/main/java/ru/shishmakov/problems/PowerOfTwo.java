@@ -1,5 +1,10 @@
 package ru.shishmakov.problems;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+
 /**
  * Given an integer 'n', return 'true' if it is a power of two and 'false' otherwise.<br/>
  * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x)
@@ -26,6 +31,8 @@ package ru.shishmakov.problems;
  * <a href="https://leetcode.ca/2016-07-18-231-Power-of-Two/">Power of Two: problem solution</a>
  */
 public class PowerOfTwo implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static final int DEFAULT_NUMBER = 72;
 
     private final int number;
@@ -41,11 +48,11 @@ public class PowerOfTwo implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Start validating the number...");
-        System.out.println("Number: " + number + System.lineSeparator());
+        logger.info("Start validating the number...");
+        logger.info("Number: {}", number);
 
         this.powerOfTwo = validateNumber2(number);
-        System.out.println("Result. The number is: " + (this.powerOfTwo ? "power of two" : "not power of two"));
+        logger.info("Result. The number is: {}", (this.powerOfTwo ? "power of two" : "not power of two"));
     }
 
     private boolean validateNumber1(int number) {
@@ -55,7 +62,7 @@ public class PowerOfTwo implements Runnable {
 
         while (number % 2 == 0) {
             number /= 2;
-            System.out.println("n/2 = " + number);
+            logger.info("n/2 = {}", number);
         }
         return number == 1;
     }

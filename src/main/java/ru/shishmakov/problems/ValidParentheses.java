@@ -1,5 +1,9 @@
 package ru.shishmakov.problems;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -13,6 +17,8 @@ import java.util.Deque;
  * <a href="https://leetcode.ca/2015-12-20-20-Valid-Parentheses/">Valid parentheses: problem solution</a>
  */
 public class ValidParentheses implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static final String DEFAULT_PARENTHESES = "()[{}]";
 
     private final String parentheses;
@@ -24,11 +30,11 @@ public class ValidParentheses implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Start validating parentheses...");
-        System.out.println("Parentheses: " + parentheses + System.lineSeparator());
+        logger.info("Start validating parentheses...");
+        logger.info("Parentheses: {}", parentheses);
 
         this.valid = validate(parentheses);
-        System.out.println("Result. Parentheses is: " + (this.valid ? "valid" : "no valid"));
+        logger.info("Result. Parentheses is: {}", (this.valid ? "valid" : "no valid"));
     }
 
     public boolean isValid() {

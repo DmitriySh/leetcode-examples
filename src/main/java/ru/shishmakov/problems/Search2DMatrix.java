@@ -1,5 +1,9 @@
 package ru.shishmakov.problems;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
 import java.text.MessageFormat;
 import java.util.AbstractMap;
 import java.util.Arrays;
@@ -16,6 +20,7 @@ import java.util.Map;
  * <a href="https://leetcode.ca/2016-02-12-74-Search-a-2D-Matrix/">Search a 2D Matrix: problem solution</a>
  */
 public class Search2DMatrix implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static final int[][] DEFAULT_MATRIX = new int[][]{
             {1, 3, 5, 7},
@@ -44,13 +49,13 @@ public class Search2DMatrix implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(MessageFormat.format("Start searching the number: {0}...", number));
+        logger.info("Start searching the number: {}...", number);
         printMatrix(matrix);
 
         NumberResult result = searchNumber();
         this.found = result.foundNumber;
         this.position = result.positionNumber;
-        System.out.println("Result. The number was: " + result);
+        logger.info("Result. The number was: {}", result);
     }
 
     private NumberResult searchNumber() {
@@ -80,12 +85,12 @@ public class Search2DMatrix implements Runnable {
                 break;
             }
         }
-        System.out.println("Stop.");
+        logger.info("Stop.");
         return new NumberResult(found, position);
     }
 
     private void printPosition(int col, int row, int value) {
-        System.out.println(MessageFormat.format(
+        logger.info(MessageFormat.format(
                 "matrix[{0}][{1}]={2} {3}",
                 col, row, value, value == number ? ("found!") : (value > number ? "<- left" : "-> right")
         ));
@@ -93,9 +98,9 @@ public class Search2DMatrix implements Runnable {
 
     private void printMatrix(int[][] array) {
         for (int[] row : array) {
-            System.out.println(Arrays.toString(row));
+            logger.info(Arrays.toString(row));
         }
-        System.out.println(System.lineSeparator());
+        logger.info("");
     }
 
     private static class NumberResult {

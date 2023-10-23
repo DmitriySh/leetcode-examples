@@ -1,6 +1,9 @@
 package ru.shishmakov.problems;
 
-import java.text.MessageFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
 
 /**
@@ -10,12 +13,15 @@ import java.util.Arrays;
  * <a href="https://leetcode.ca/2016-06-17-200-Number-of-Islands/">Number of islands: problem solution</a>
  */
 public class NumberOfIslands implements Runnable {
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
     public static final int[][] DEFAULT_GRID = new int[][]{
             {1, 1, 0, 0, 1},
             {0, 1, 0, 0, 0},
             {1, 0, 1, 0, 0},
             {0, 0, 0, 1, 1},
     };
+
     private final int[][] grid;
     private int islands;
 
@@ -29,11 +35,11 @@ public class NumberOfIslands implements Runnable {
 
     @Override
     public void run() {
-        System.out.println("Start counting number of islands...");
+        logger.info("Start counting number of islands...");
         printGrid(grid);
 
         this.islands = countIslands();
-        System.out.println("Result. Grid islands: " + this.islands);
+        logger.info("Result. Grid islands: {}", this.islands);
     }
 
     private int countIslands() {
@@ -77,16 +83,13 @@ public class NumberOfIslands implements Runnable {
     }
 
     private static void printFoundLand(int[][] grid, int r, int c) {
-        System.out.println(MessageFormat.format(
-                "Found grid[{0}][{1}] = {2}",
-                r, c, grid[r][c]
-        ));
+        logger.info("Found grid[{}][{}] = {}", r, c, grid[r][c]);
     }
 
     private void printGrid(int[][] array) {
         for (int[] row : array) {
-            System.out.println(Arrays.toString(row));
+            logger.info(Arrays.toString(row));
         }
-        System.out.println(System.lineSeparator());
+        logger.info("");
     }
 }
