@@ -4,6 +4,7 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.NumberOfIslands;
+import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidParentheses;
@@ -13,6 +14,7 @@ import static ru.shishmakov.problems.Search2DMatrix.DEFAULT_MATRIX;
 import static ru.shishmakov.problems.ValidParentheses.DEFAULT_PARENTHESES;
 
 public class App {
+
     public void start(String param) {
         switch (param) {
             case "numberOfIslands": {
@@ -29,6 +31,10 @@ public class App {
             }
             case "search2DMatrix": {
                 new Search2DMatrix(DEFAULT_MATRIX, Search2DMatrix.DEFAULT_NUMBER).run();
+                break;
+            }
+            case "numberOfOneBits": {
+                new NumberOfOneBits(NumberOfOneBits.DEFAULT_NUMBER).run();
                 break;
             }
             default: {
