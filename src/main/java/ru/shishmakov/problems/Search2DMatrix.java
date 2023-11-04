@@ -115,7 +115,7 @@ public class Search2DMatrix implements Runnable {
         @Override
         public String toString() {
             return this.foundNumber
-                    ? MessageFormat.format("found [{0}][{1}]", positionNumber.getKey(), positionNumber.getValue())
+                    ? MessageFormat.format("found in matrix[{0}][{1}]", positionNumber.getKey(), positionNumber.getValue())
                     : "not found";
         }
     }
