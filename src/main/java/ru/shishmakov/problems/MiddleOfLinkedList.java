@@ -8,6 +8,20 @@ import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Given the 'head' of a singly linked list, return its middle node. If there are two middle nodes, return the second middle node.
+ * <pre>
+ * Example:
+ *   origin : 1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *   middle node : 4 -> 5 -> 6 -> null
+ *   middle position : 3
+ *   middle value : 4
+ *
+ * Explanation: use fast and slow cursors by one iteration
+ * </pre>
+ *
+ * <a href="https://github.com/carlos-anaya/leetcode/blob/master/problems/876-Middle%20of%20the%20Linked%20List.md">Middle of the Linked List: problem solution</a>
+ */
 public class MiddleOfLinkedList implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final ListNode DEFAULT_LIST_NODE = buildDefaultListNode(5);
