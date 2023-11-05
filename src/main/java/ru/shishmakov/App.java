@@ -3,6 +3,7 @@
  */
 package ru.shishmakov;
 
+import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PowerOfTwo;
@@ -40,6 +41,10 @@ public class App {
             }
             case "reverseLinkedList": {
                 new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
+                break;
+            }
+            case "middleOfLinkedList": {
+                new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
                 break;
             }
             default: {
