@@ -6,6 +6,7 @@ package ru.shishmakov;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PowerOfTwo;
+import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidParentheses;
 
@@ -35,6 +36,10 @@ public class App {
             }
             case "numberOfOneBits": {
                 new NumberOfOneBits(NumberOfOneBits.DEFAULT_NUMBER).run();
+                break;
+            }
+            case "reverseLinkedList": {
+                new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
                 break;
             }
             default: {
