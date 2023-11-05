@@ -15,7 +15,7 @@ public class ReverseLinkedListTest {
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getReversedList();
+        ListNode reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())
@@ -32,7 +32,7 @@ public class ReverseLinkedListTest {
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getReversedList();
+        ListNode reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())
@@ -49,7 +49,7 @@ public class ReverseLinkedListTest {
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getReversedList();
+        ListNode reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())

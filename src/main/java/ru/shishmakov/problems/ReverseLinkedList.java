@@ -7,33 +7,51 @@ import java.lang.invoke.MethodHandles;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Given the 'head' of a singly linked list, reverse the list and return it.
+ * <pre>
+ * Example:
+ *   origin   : 1  ->  2  ->  3  ->  4 -> null
+ *   reversed : 4  ->  3  ->  2  ->  1 -> null
+ *
+ * Explanation:
+ *   reversed    origin  next
+ *     null   |    1  ->  2  ->  3  ->  4  ->  null
+ *         reversed  origin  next
+ *     null <- 1   |   2  ->  3  ->  4  ->  null
+ *              reversed  origin  next
+ *     null <- 1 <- 2   |   3  ->  4  ->  null
+ *
+ *     ...
+ * </pre>
+ *
+ * <a href="https://leetcode.ca/2016-06-23-206-Reverse-Linked-List/">Reverse Linked List: problem solution</a>
+ */
 public class ReverseLinkedList implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final ListNode DEFAULT_LIST_NODE = buildDefaultListNode(5);
 
-    private final ListNode originList;
-    private ListNode reversedList;
+    private final ListNode headOriginList;
+    private ListNode headReversedList;
 
-    public ReverseLinkedList(ListNode originList) {
-        this.originList = originList;
+    public ReverseLinkedList(ListNode headOriginList) {
+        this.headOriginList = headOriginList;
     }
 
-    public ListNode getReversedList() {
-        return reversedList;
+    public ListNode getHeadReversedList() {
+        return headReversedList;
     }
 
     @Override
     public void run() {
         logger.info("Start reversing linked list...");
-        logger.info("Origin linked list: {}", originList);
+        logger.info("Origin linked list: {}", headOriginList);
 
-        reversedList = reverseList(copyList(originList));
-        logger.info("Result. Reversed linked list: {}", reversedList);
+        headReversedList = reverseList(copyList(headOriginList));
+        logger.info("Result. Reversed linked list: {}", headReversedList);
     }
 
     private ListNode reverseList(ListNode origin) {
-        // reversed    origin  next
-        //   null   |    1  ->  2  ->  3  ->  4  ->  null
         ListNode reversed = null;
         while (origin != null) {
             ListNode next = origin.next;
