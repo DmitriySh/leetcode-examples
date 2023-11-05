@@ -10,7 +10,7 @@ public class ReverseLinkedListTest {
     @Test
     void reverseTheLinkedListSuccessfully() {
         // given
-        ListNode originList = ReverseLinkedList.buildDefaultListNode(5);
+        ListNode originList = ReverseLinkedList.buildDefaultListNode(10);
         ReverseLinkedList linkedList = new ReverseLinkedList(originList);
 
         // when
@@ -19,9 +19,9 @@ public class ReverseLinkedListTest {
 
         // then
         assertThat(originList.toString())
-                .isEqualTo("[1, 2, 3, 4, 5]");
+                .isEqualTo("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]");
         assertThat(reversedList.toString())
-                .isEqualTo("[5, 4, 3, 2, 1]");
+                .isEqualTo("[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]");
     }
 
     @Test
