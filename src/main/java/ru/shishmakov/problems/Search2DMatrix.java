@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 import java.text.MessageFormat;
-import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -81,7 +80,7 @@ public class Search2DMatrix implements Runnable {
                 right = middle - 1;
             } else { // equal
                 found = true;
-                position = new AbstractMap.SimpleEntry<>(col, row);
+                position = Map.entry(col, row);
                 break;
             }
         }
