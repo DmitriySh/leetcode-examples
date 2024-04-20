@@ -9,6 +9,7 @@ import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
+import ru.shishmakov.problems.ValidPalindrome;
 import ru.shishmakov.problems.ValidParentheses;
 
 import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
@@ -39,6 +40,9 @@ public class App {
             }
             case "middleOfLinkedList" -> {
                 new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
+            }
+            case "validPalindrome" -> {
+                new ValidPalindrome(ValidPalindrome.DEFAULT_TEXT).run();
             }
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
