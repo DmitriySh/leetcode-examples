@@ -11,7 +11,7 @@ public class NumberOfOneBitsTest {
     @ValueSource(ints = {Integer.MIN_VALUE, -3, 0, 1, 2, 7, 8, 63, 85, 1073741824, Integer.MAX_VALUE})
     void shouldCountNumberOfOneBitsSuccessfully(int number) {
         // given
-        NumberOfOneBits bitsNumber = new NumberOfOneBits(number);
+        var bitsNumber = new NumberOfOneBits(number);
 
         // when
         bitsNumber.run();

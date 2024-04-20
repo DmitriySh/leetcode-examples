@@ -9,7 +9,7 @@ public class NumberOfIslandsTest {
     @Test
     void testGridWithFiveIslands() {
         // given
-        NumberOfIslands numberOfIslands = new NumberOfIslands(new int[][]{
+        var numberOfIslands = new NumberOfIslands(new int[][]{
                 {1, 1, 0, 0, 1},
                 {0, 1, 0, 0, 0},
                 {1, 0, 1, 0, 0},
@@ -28,7 +28,7 @@ public class NumberOfIslandsTest {
     @Test
     void testGridWithThreeIslands() {
         // given
-        NumberOfIslands numberOfIslands = new NumberOfIslands(new int[][]{
+        var numberOfIslands = new NumberOfIslands(new int[][]{
                 {1, 1, 0, 0, 0},
                 {1, 1, 0, 0, 0},
                 {0, 0, 1, 0, 0},
@@ -46,7 +46,7 @@ public class NumberOfIslandsTest {
 
     @Test
     void testGridWithOneIsland() {
-        NumberOfIslands numberOfIslands = new NumberOfIslands(new int[][]{
+        var numberOfIslands = new NumberOfIslands(new int[][]{
                 {1, 1, 1},
                 {0, 1, 0},
                 {1, 1, 1}
@@ -63,7 +63,7 @@ public class NumberOfIslandsTest {
 
     @Test
     void testGridWithoutIsland() {
-        NumberOfIslands numberOfIslands = new NumberOfIslands(new int[][]{
+        var numberOfIslands = new NumberOfIslands(new int[][]{
                 {0, 0, 0},
                 {0, 0, 0},
                 {0, 0, 0}

@@ -10,12 +10,12 @@ public class ReverseLinkedListTest {
     @Test
     void reverseTheLinkedListSuccessfully() {
         // given
-        ListNode originList = ReverseLinkedList.buildDefaultListNode(10);
-        ReverseLinkedList linkedList = new ReverseLinkedList(originList);
+        var originList = ReverseLinkedList.buildDefaultListNode(10);
+        var linkedList = new ReverseLinkedList(originList);
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getHeadReversedList();
+        var reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())
@@ -27,12 +27,12 @@ public class ReverseLinkedListTest {
     @Test
     void reverseSmallLinkedListSuccessfully() {
         // given
-        ListNode originList = ReverseLinkedList.buildDefaultListNode(2);
-        ReverseLinkedList linkedList = new ReverseLinkedList(originList);
+        var originList = ReverseLinkedList.buildDefaultListNode(2);
+        var linkedList = new ReverseLinkedList(originList);
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getHeadReversedList();
+        var reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())
@@ -44,12 +44,12 @@ public class ReverseLinkedListTest {
     @Test
     void reverseEmptyLinkedListSuccessfully() {
         // given
-        ListNode originList = new ListNode();
-        ReverseLinkedList linkedList = new ReverseLinkedList(originList);
+        var originList = new ListNode();
+        var linkedList = new ReverseLinkedList(originList);
 
         // when
         linkedList.run();
-        ListNode reversedList = linkedList.getHeadReversedList();
+        var reversedList = linkedList.getHeadReversedList();
 
         // then
         assertThat(originList.toString())

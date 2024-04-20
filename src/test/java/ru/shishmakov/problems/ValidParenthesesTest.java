@@ -11,7 +11,7 @@ public class ValidParenthesesTest {
     @ValueSource(strings = {"()[{}]", "[(){}]", "[]{}()", "()[]{}"})
     void stringValidIfOpenedAndClosedParenthesesHaveNoError(String param) {
         // given
-        ValidParentheses parentheses = new ValidParentheses(param);
+        var parentheses = new ValidParentheses(param);
 
         // when
         parentheses.run();
@@ -26,7 +26,7 @@ public class ValidParenthesesTest {
     @ValueSource(strings = {"[({)]}", "({[", "()[{!}]", "qwe", ""})
     void stringInvalidIfOpenedAndClosedParenthesesHaveSequenceErrors(String param) {
         // given
-        ValidParentheses parentheses = new ValidParentheses(param);
+        var parentheses = new ValidParentheses(param);
 
         // when
         parentheses.run();

@@ -11,7 +11,7 @@ class PowerOfTwoTest {
     @ValueSource(ints = {-4, -1, 0, 3, 5, 7, 100, 101, 120, 777})
     void numbersIsNotPowerOfTwo(int number) {
         // given
-        PowerOfTwo power = new PowerOfTwo(number);
+        var power = new PowerOfTwo(number);
 
         // when
         power.run();
@@ -26,7 +26,7 @@ class PowerOfTwoTest {
     @ValueSource(ints = {1, 2, 4, 8, 64, 256, 512, 1024})
     void numbersIsPowerOfTwo(int number) {
         // given
-        PowerOfTwo power = new PowerOfTwo(number);
+        var power = new PowerOfTwo(number);
 
         // when
         power.run();

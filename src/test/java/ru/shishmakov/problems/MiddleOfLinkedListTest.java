@@ -10,8 +10,8 @@ public class MiddleOfLinkedListTest {
     @Test
     void evenSizeLinkedListShouldFindMiddleNodeSuccessfully() {
         // given
-        ListNode originList = MiddleOfLinkedList.buildDefaultListNode(6);
-        MiddleOfLinkedList linkedList = new MiddleOfLinkedList(originList);
+        var originList = MiddleOfLinkedList.buildDefaultListNode(6);
+        var linkedList = new MiddleOfLinkedList(originList);
 
         // when
         linkedList.run();
@@ -28,8 +28,8 @@ public class MiddleOfLinkedListTest {
     @Test
     void oddSizeLinkedListShouldFindMiddleNodeSuccessfully() {
         // given
-        ListNode originList = MiddleOfLinkedList.buildDefaultListNode(5);
-        MiddleOfLinkedList linkedList = new MiddleOfLinkedList(originList);
+        var originList = MiddleOfLinkedList.buildDefaultListNode(5);
+        var linkedList = new MiddleOfLinkedList(originList);
 
         // when
         linkedList.run();
@@ -46,8 +46,8 @@ public class MiddleOfLinkedListTest {
     @Test
     void emptyLinkedListShouldFindMiddleNodeSuccessfully() {
         // given
-        ListNode originList = new ListNode();
-        MiddleOfLinkedList linkedList = new MiddleOfLinkedList(originList);
+        var originList = new ListNode();
+        var linkedList = new MiddleOfLinkedList(originList);
 
         // when
         linkedList.run();
