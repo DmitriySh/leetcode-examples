@@ -102,7 +102,7 @@ public class Search2DMatrix implements Runnable {
         logger.info("");
     }
 
-    private static class NumberResult {
+    private static final class NumberResult {
         private final boolean foundNumber;
         private final Map.Entry<Integer, Integer> positionNumber;
 

@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 import java.util.ArrayDeque;
-import java.util.Deque;
 
 /**
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -46,7 +45,7 @@ public class ValidParentheses implements Runnable {
             return false;
         }
 
-        Deque<Character> queue = new ArrayDeque<>(parentheses.length());
+        var queue = new ArrayDeque<Character>(parentheses.length());
         for (int index = 0; index < parentheses.length(); index++) {
             char nextChar = parentheses.charAt(index);
 

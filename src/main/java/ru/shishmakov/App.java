@@ -19,37 +19,28 @@ public class App {
 
     public void start(String param) {
         switch (param) {
-            case "numberOfIslands": {
+            case "numberOfIslands" -> {
                 new NumberOfIslands(DEFAULT_GRID).run();
-                break;
             }
-            case "validParentheses": {
+            case "validParentheses" -> {
                 new ValidParentheses(DEFAULT_PARENTHESES).run();
-                break;
             }
-            case "powerOfTwo": {
+            case "powerOfTwo" -> {
                 new PowerOfTwo(PowerOfTwo.DEFAULT_NUMBER).run();
-                break;
             }
-            case "search2DMatrix": {
+            case "search2DMatrix" -> {
                 new Search2DMatrix(DEFAULT_MATRIX, Search2DMatrix.DEFAULT_NUMBER).run();
-                break;
             }
-            case "numberOfOneBits": {
+            case "numberOfOneBits" -> {
                 new NumberOfOneBits(NumberOfOneBits.DEFAULT_NUMBER).run();
-                break;
             }
-            case "reverseLinkedList": {
+            case "reverseLinkedList" -> {
                 new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
-                break;
             }
-            case "middleOfLinkedList": {
+            case "middleOfLinkedList" -> {
                 new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
-                break;
             }
-            default: {
-                throw new IllegalArgumentException("Unavailable param: " + param);
-            }
+            default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
 

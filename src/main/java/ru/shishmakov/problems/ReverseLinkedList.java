@@ -87,7 +87,7 @@ public class ReverseLinkedList implements Runnable {
         return node;
     }
 
-    public static class ListNode {
+    public static final class ListNode {
         int val;
         ListNode next;
 

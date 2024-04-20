@@ -73,7 +73,7 @@ public class MiddleOfLinkedList implements Runnable {
         return node;
     }
 
-    public static class ListNode {
+    public static final class ListNode {
         int val;
         ListNode next;
 
@@ -101,15 +101,7 @@ public class MiddleOfLinkedList implements Runnable {
         }
     }
 
-    private static class NodeResult {
-        private final int nodeIndex;
-        private final ListNode node;
-
-        public NodeResult(int nodeIndex, ListNode node) {
-            this.nodeIndex = nodeIndex;
-            this.node = node;
-        }
-
+    private record NodeResult(int nodeIndex, ListNode node) {
         @Override
         public String toString() {
             return MessageFormat.format(
