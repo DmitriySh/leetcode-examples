@@ -22,6 +22,12 @@ dependencies {
     testImplementation 'org.assertj:assertj-core:3.24.2'
 }
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 build {
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
