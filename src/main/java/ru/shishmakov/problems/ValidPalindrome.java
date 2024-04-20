@@ -19,6 +19,7 @@ import java.lang.invoke.MethodHandles;
 public class ValidPalindrome implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final String DEFAULT_TEXT = "A man, a plan, a canal: Panama";
+
     private final String text;
     private boolean valid;
 

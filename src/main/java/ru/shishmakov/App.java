@@ -9,6 +9,7 @@ import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
+import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidPalindrome;
 import ru.shishmakov.problems.ValidParentheses;
 
@@ -43,6 +44,9 @@ public class App {
             }
             case "validPalindrome" -> {
                 new ValidPalindrome(ValidPalindrome.DEFAULT_TEXT).run();
+            }
+            case "validAnagram" -> {
+                new ValidAnagram(ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT).run();
             }
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }

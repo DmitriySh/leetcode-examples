@@ -18,6 +18,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [200 - Number of Islands](https://leetcode.com/problems/number-of-islands) (counting the number of islands in the grid NxN)
  * [206 - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) (reverse the linked list)
  * [231 - Power of two](https://leetcode.com/problems/power-of-two) (number is a power of two or not)
+ * [242 - Validate Anagram](https://leetcode.com/problems/valid-anagram) (text is a anagram, true or false)
  * [876 - Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) (find middle of the linked list)
 
 
