@@ -7,16 +7,10 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
-    id 'application'
-}
-
-application {
-    mainClass = 'ru.shishmakov.App'
+    id 'java'
 }
 
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
@@ -30,7 +24,6 @@ dependencies {
 
 build {
     [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-    [compileJava, compileTestJava]*.options*.release = 17
 
     test {
         useJUnitPlatform()
@@ -39,6 +32,11 @@ build {
 
 jar {
     manifest {
-        attributes 'Main-Class': application.mainClass
+        attributes 'Main-Class': 'ru.shishmakov.App'
+        attributes 'Implementation-Title': 'Leetcode examples'
     }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
