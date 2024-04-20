@@ -7,6 +7,8 @@ import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
 
 /**
+ * 200 - Number of Islands.
+ * <p/>
  * Given a 2D grid map of '1's (land) and '0's (water), count the number of islands.
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
  * <p/>

@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 876 - Middle of the Linked List.
+ * <p/>
  * Given the 'head' of a singly linked list, return its middle node. If there are two middle nodes, return the second middle node.
  * <pre>
  * Example:

@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
+ * 74 - Search a 2D Matrix.
+ * <p/>
  * Given a 'number' and an MxN integer 2D 'matrix' with the following two properties:
  * <ul>
  * <li>each row is sorted in non-decreasing order</li>

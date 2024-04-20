@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 
 /**
+ * 231 - Power of two.
+ * <p/>
  * Given an integer 'n', return 'true' if it is a power of two and 'false' otherwise.<br/>
  * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x)
  * <pre>
