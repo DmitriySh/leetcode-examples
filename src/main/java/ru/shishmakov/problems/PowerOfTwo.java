@@ -34,7 +34,6 @@ import java.lang.invoke.MethodHandles;
  */
 public class PowerOfTwo implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
     public static final int DEFAULT_NUMBER = 72;
 
     private final int number;

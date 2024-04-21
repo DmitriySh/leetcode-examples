@@ -6,6 +6,7 @@ package ru.shishmakov;
 import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
+import ru.shishmakov.problems.PlusOne;
 import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
@@ -36,6 +37,7 @@ public class App {
             ).run();
             case "wordPattern" -> new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
             case "validIpAddress" -> new ValidIpAddress(ValidIpAddress.DEFAULT_IP_ADDRESS).run();
+            case "plusOne" -> new PlusOne(PlusOne.DEFAULT_DIGITS).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
