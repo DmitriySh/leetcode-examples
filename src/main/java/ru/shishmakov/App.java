@@ -10,6 +10,7 @@ import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidAnagram;
+import ru.shishmakov.problems.ValidIpAddress;
 import ru.shishmakov.problems.ValidPalindrome;
 import ru.shishmakov.problems.ValidParentheses;
 import ru.shishmakov.problems.WordPattern;
@@ -22,36 +23,19 @@ public class App {
 
     public void start(String param) {
         switch (param) {
-            case "numberOfIslands" -> {
-                new NumberOfIslands(DEFAULT_GRID).run();
-            }
-            case "validParentheses" -> {
-                new ValidParentheses(DEFAULT_PARENTHESES).run();
-            }
-            case "powerOfTwo" -> {
-                new PowerOfTwo(PowerOfTwo.DEFAULT_NUMBER).run();
-            }
-            case "search2DMatrix" -> {
-                new Search2DMatrix(DEFAULT_MATRIX, Search2DMatrix.DEFAULT_NUMBER).run();
-            }
-            case "numberOfOneBits" -> {
-                new NumberOfOneBits(NumberOfOneBits.DEFAULT_NUMBER).run();
-            }
-            case "reverseLinkedList" -> {
-                new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
-            }
-            case "middleOfLinkedList" -> {
-                new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
-            }
-            case "validPalindrome" -> {
-                new ValidPalindrome(ValidPalindrome.DEFAULT_TEXT).run();
-            }
-            case "validAnagram" -> {
-                new ValidAnagram(ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT).run();
-            }
-            case "wordPattern" -> {
-                new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
-            }
+            case "numberOfIslands" -> new NumberOfIslands(DEFAULT_GRID).run();
+            case "validParentheses" -> new ValidParentheses(DEFAULT_PARENTHESES).run();
+            case "powerOfTwo" -> new PowerOfTwo(PowerOfTwo.DEFAULT_NUMBER).run();
+            case "search2DMatrix" -> new Search2DMatrix(DEFAULT_MATRIX, Search2DMatrix.DEFAULT_NUMBER).run();
+            case "numberOfOneBits" -> new NumberOfOneBits(NumberOfOneBits.DEFAULT_NUMBER).run();
+            case "reverseLinkedList" -> new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
+            case "middleOfLinkedList" -> new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
+            case "validPalindrome" -> new ValidPalindrome(ValidPalindrome.DEFAULT_TEXT).run();
+            case "validAnagram" -> new ValidAnagram(
+                    ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT
+            ).run();
+            case "wordPattern" -> new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
+            case "validIpAddress" -> new ValidIpAddress(ValidIpAddress.DEFAULT_IP_ADDRESS).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
