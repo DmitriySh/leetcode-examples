@@ -34,15 +34,16 @@ public class ValidIpAddress implements Runnable {
         logger.info("Result. IP address type: {}", type);
     }
 
-    public String validIPAddress(String queryIP) {
+    private String validIPAddress(String queryIP) {
         if (queryIP.contains(".")) {  // x1.x2.x3.x4
-            String[] segments = queryIP.split("\\.");
+            String[] segments = queryIP.split("\\.", -1);
             if (segments.length != 4) {
                 return "Neither";
             }
 
             for (String segment : segments) {
-                if (segment.startsWith("0") && segment.length() > 1) {
+                // 0 <= xi <= 255
+                if (segment.isEmpty() || segment.length() > 3 || (segment.startsWith("0") && segment.length() > 1)) {
                     return "Neither";
                 }
                 // digits = "0123456789"
@@ -56,12 +57,13 @@ public class ValidIpAddress implements Runnable {
             }
             return "IPv4";
         } else if (queryIP.contains(":")) {  // x1:x2:x3:x4:x5:x6:x7:x8
-            String[] segments = queryIP.split(":");
+            String[] segments = queryIP.split(":", -1);
             if (segments.length != 8) {
                 return "Neither";
             }
 
             for (String segment : segments) {
+                // 1 <= xi.length <= 4
                 if (segment.isEmpty() || segment.length() > 4) {
                     return "Neither";
                 }
