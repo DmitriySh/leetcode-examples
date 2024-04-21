@@ -8,6 +8,8 @@ import java.lang.invoke.MethodHandles;
 /**
  * 242 - Valid Anagram.
  * <p/>
+ *
+ <a href="https://leetcode.ca/2016-07-29-242-Valid-Anagram/">Valid Anagram: problem solution</a>
  */
 public class ValidAnagram implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());

@@ -19,7 +19,6 @@ import java.util.ArrayDeque;
  */
 public class ValidParentheses implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
     public static final String DEFAULT_PARENTHESES = "()[{}]";
 
     private final String parentheses;

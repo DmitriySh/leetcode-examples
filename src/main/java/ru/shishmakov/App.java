@@ -12,6 +12,7 @@ import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidPalindrome;
 import ru.shishmakov.problems.ValidParentheses;
+import ru.shishmakov.problems.WordPattern;
 
 import static ru.shishmakov.problems.NumberOfIslands.DEFAULT_GRID;
 import static ru.shishmakov.problems.Search2DMatrix.DEFAULT_MATRIX;
@@ -47,6 +48,9 @@ public class App {
             }
             case "validAnagram" -> {
                 new ValidAnagram(ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT).run();
+            }
+            case "wordPattern" -> {
+                new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
             }
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
