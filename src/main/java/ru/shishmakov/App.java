@@ -8,6 +8,7 @@ import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.PlusOne;
 import ru.shishmakov.problems.PowerOfTwo;
+import ru.shishmakov.problems.RemoveDuplicatesFromSortedArray;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.ValidAnagram;
@@ -38,6 +39,9 @@ public class App {
             case "wordPattern" -> new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
             case "validIpAddress" -> new ValidIpAddress(ValidIpAddress.DEFAULT_IP_ADDRESS).run();
             case "plusOne" -> new PlusOne(PlusOne.DEFAULT_DIGITS).run();
+            case "removeDuplicatesFromSortedArray" -> new RemoveDuplicatesFromSortedArray(
+                    RemoveDuplicatesFromSortedArray.DEFAULT_ARRAY
+            ).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
