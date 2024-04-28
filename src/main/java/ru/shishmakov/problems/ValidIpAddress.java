@@ -47,7 +47,7 @@ public class ValidIpAddress implements Runnable {
                     return "Neither";
                 }
                 // digits = "0123456789"
-                if (!segment.chars().allMatch(ch -> '0' <= (char) ch && (char) ch <= '9')) {
+                if (!segment.chars().allMatch(ch -> '0' <= ch && ch <= '9')) {
                     return "Neither";
                 }
                 int number = Integer.parseInt(segment);
@@ -69,7 +69,7 @@ public class ValidIpAddress implements Runnable {
                 }
                 // iPv6Chars = "0123456789abcdefABCDEF"
                 if (!segment.chars().map(Character::toLowerCase)
-                        .allMatch(ch -> ('0' <= (char) ch && (char) ch <= '9') || ('a' <= (char) ch && (char) ch <= 'f'))
+                        .allMatch(ch -> ('0' <= ch && ch <= '9') || ('a' <= ch && ch <= 'f'))
                 ) {
                     return "Neither";
                 }

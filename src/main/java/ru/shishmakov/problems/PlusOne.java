@@ -47,6 +47,7 @@ public class PlusOne implements Runnable {
             }
         }
 
+        // [9,9] -> [1,0,0]
         digits = new int[length + 1];
         digits[0] = 1;
         return digits;
