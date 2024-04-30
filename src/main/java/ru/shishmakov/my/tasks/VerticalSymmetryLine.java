@@ -10,8 +10,12 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Array of points on vertical axis (Y) and horizontal axis (X) make a shape.
- * Vertical line on coordinate system could separate shape on two equal (symmetrical) parts.
+ * You have:
+ * <ul>
+ *   <li> a cartesian coordinate system with vertical axis (Y) and horizontal axis (X);</li>
+ *   <li> array of `points` with positive integer coordinates (x1, y1) that form a shape</li>
+ * </ul>
+ * You need to find out if there is a vertical line in the coordinate system dividing the array into two equal (symmetrical) sets of points.
  */
 public class VerticalSymmetryLine implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -27,13 +31,16 @@ public class VerticalSymmetryLine implements Runnable {
      *   |                |   *
      *   |___________________________________> X
      * (0,0)  4   8   12  16  20  24  28  32
+     *
+     * Point {x=20, y=1} - asymmetrical
+     * Other points are symmetrical by vertical line
      * </pre>
      */
     public static final Point[] DEFAULT_POINTS = new Point[]{
             new Point(8, 2), new Point(8, 4),
             new Point(12, 3), new Point(12, 4),
             new Point(13, 6),
-            // 16 - vertical line
+            // x=16 - vertical line
             new Point(19, 6),
             new Point(20, 1), new Point(20, 3), new Point(20, 4),
             new Point(24, 2), new Point(24, 4),
@@ -41,10 +48,14 @@ public class VerticalSymmetryLine implements Runnable {
     };
 
     private final Point[] points;
-    private boolean hasVerticalLine;
+    private boolean verticalLine;
 
     public VerticalSymmetryLine(Point[] points) {
         this.points = points;
+    }
+
+    public boolean hasVerticalLine() {
+        return verticalLine;
     }
 
     @Override
@@ -52,8 +63,8 @@ public class VerticalSymmetryLine implements Runnable {
         logger.info("Start searching vertical line between the points...");
         logger.info("Array of points: {}", Arrays.toString(points));
 
-        this.hasVerticalLine = defineVerticalLine(points);
-        logger.info("Result. {} vertical symmetry line in an array of points", (this.hasVerticalLine ? "Has" : "No"));
+        this.verticalLine = defineVerticalLine(points);
+        logger.info("Result. {} vertical symmetry line in an array of points", (this.verticalLine ? "Has" : "No"));
     }
 
     private boolean defineVerticalLine(Point[] points) {
@@ -61,7 +72,7 @@ public class VerticalSymmetryLine implements Runnable {
         var axisMap = new HashMap<Integer, List<Point>>();
 
         // find min and max points by horizontal axis (X)
-        // accumulate all points by x into hashMap
+        // accumulate all points by X into HashMap
         for (int i = 0; i < points.length; i++) {
             Point point = points[i];
             if (i == 0) {
@@ -77,32 +88,31 @@ public class VerticalSymmetryLine implements Runnable {
             });
         }
 
-        // no shape of points
-        // no vertical line
+        // if no shape from array of points
+        // if no vertical line in array of points
         if (minX == maxX || (maxX - minX) == 1) {
             return false;
         }
 
         int lineX = minX + (maxX - minX) / 2;
-        logger.info("minX: {}, maxX: {}, lineX: {}", minX, maxX, lineX);
-        logger.info("Map: {}", axisMap);
+        logger.info("minX: {}, maxX: {}, calculated lineX: {}", minX, maxX, lineX);
+        logger.info("Map of points by X: {}", axisMap);
 
         // search symmetrical point from left to right by vertical line
         boolean hasVerticalLine = true;
-        for (int i = 0; i < points.length; i++) {
-            Point point = points[i];
+        for (Point point : points) {
             int delta = lineX - point.x;
 
-            // has right point?
-            List<Point> rightPoints = axisMap.get(lineX + delta);
-            if (rightPoints != null) {
-                if (!hasSymmetricalSubPoint(point, rightPoints)) {
+            // has symmetrical point?
+            List<Point> symmetricalPoints = axisMap.get(lineX + delta);
+            if (symmetricalPoints != null) {
+                if (!hasSymmetricalSubPoint(point, symmetricalPoints)) {
                     // no right point
                     hasVerticalLine = false;
                     break;
                 }
             } else {
-                // no right point
+                // no symmetrical point
                 hasVerticalLine = false;
                 break;
             }
@@ -110,9 +120,9 @@ public class VerticalSymmetryLine implements Runnable {
         return hasVerticalLine;
     }
 
-    private static boolean hasSymmetricalSubPoint(Point leftPoint, List<Point> rightPoints) {
-        for (Point rightPoint : rightPoints) {
-            if (leftPoint.y == rightPoint.y) {
+    private static boolean hasSymmetricalSubPoint(Point mainPoint, List<Point> symmetricalPoints) {
+        for (Point symmetricalPoint : symmetricalPoints) {
+            if (mainPoint.y == symmetricalPoint.y) {
                 return true;
             }
         }
