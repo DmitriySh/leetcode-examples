@@ -5,8 +5,7 @@ My pet project.
 This is a code examples with my solutions for Leetcode problems.
 
 ## Requirements:
-  * Java SE Development Kit 11
-  * Gradle 6.X (or you could use Gradle wrapper)
+  * Java SE Development Kit 17
   * Git 1.7.x (or newer)
 
 
@@ -16,6 +15,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [66 - Plus One](https://leetcode.com/problems/plus-one) (increment the large integer by one)
  * [74 - Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix) (the number is in the matrix, true or false)
  * [125 - Valid Palindrome](https://leetcode.com/problems/valid-palindrome) (text is a palindrome, true or false)
+ * [161 - One Edit Distance](https://leetcode.com/problems/one-edit-distance/description/) (two strings differ from each other by one character, true or false)
  * [191 - Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits) (the number of 1 bits in unsigned integer)
  * [200 - Number of Islands](https://leetcode.com/problems/number-of-islands) (counting the number of islands in the grid NxN)
  * [206 - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) (reverse the linked list)

@@ -6,6 +6,7 @@ package ru.shishmakov;
 import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
+import ru.shishmakov.problems.OneEditDistance;
 import ru.shishmakov.problems.PlusOne;
 import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.RemoveDuplicatesFromSortedArray;
@@ -42,6 +43,7 @@ public class App {
             case "removeDuplicatesFromSortedArray" -> new RemoveDuplicatesFromSortedArray(
                     RemoveDuplicatesFromSortedArray.DEFAULT_ARRAY
             ).run();
+            case "oneEditDistance" -> new OneEditDistance(OneEditDistance.FIRST, OneEditDistance.SECOND).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
