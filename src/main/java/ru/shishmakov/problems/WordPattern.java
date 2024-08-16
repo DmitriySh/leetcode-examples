@@ -10,6 +10,19 @@ import java.util.Objects;
 /**
  * 290 - Word Pattern.
  * <p/>
+ * Given a `pattern` and a string `text`, find if `text` follows the same pattern.
+ * Follow means a full match: each letter in `pattern` and a non-empty word in `text`.
+ *
+ * <pre>
+ * Example:
+ *   pattern = "abba"
+ *   text    = "dog cat cat dog"
+ *   match   = true
+ *
+ *   pattern = "aaab"
+ *   text    = "dog cat cat dog"
+ *   match   = false
+ * </pre>
  *
  * <a href="https://leetcode.ca/2016-09-15-290-Word-Pattern/">Word Pattern: problem solution</a>
  */
