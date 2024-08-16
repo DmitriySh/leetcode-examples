@@ -8,6 +8,43 @@ import java.lang.invoke.MethodHandles;
 /**
  * 468 - Validate IP Address.
  * <p/>
+ * Given a string queryIP and return:
+ * <ul>
+ *     <li>"IPv4" if IP is a valid IPv4 address;</li>
+ *     <li>"IPv6" if IP is a valid IPv6 address;</li>
+ *     <li>"Neither" if IP is not a correct IP of any type;</li>
+ * </ul>
+ *
+ * A valid IPv4 address is:
+ * <ul>
+ *     <li>form `x1.x2.x3.x4`;</li>
+ *     <li>0 <= `xi` <= 255;</li>
+ *     <li>`xi` cannot contain leading zeros;</li>
+ * </ul>
+ *
+ * A valid IPv6 address is:
+ * <ul>
+ *     <li>form `x1:x2:x3:x4:x5:x6:x7:x8`;</li>
+ *     <li>1 <= `xi`.length <= 4;</li>
+ *     <li>`xi` is a hexadecimal string which may contain digits [0..9] and English letters [a..fA..F];</li>
+ *     <li>leading zeros are allowed in `xi`;</li>
+ * </ul>
+ *
+ * <pre>
+ * Example:
+ *   queryIP  = "192.168.1.0"
+ *   type     = IPv4
+ *
+ *   queryIP  = "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+ *   type     = IPv6
+ *
+ *   queryIP = "192.168.01.1"
+ *   type    = Neither
+ *
+ *   queryIP  = "2001:0db8:85a3::8A2E:037j:7334"
+ *   type     = Neither
+ * </pre>
+ *
  * <a href="https://leetcode.ca/2017-03-12-468-Validate-IP-Address/">Validate IP Address: problem solution</a>
  */
 public class ValidIpAddress implements Runnable {
