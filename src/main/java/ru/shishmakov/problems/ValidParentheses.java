@@ -15,6 +15,16 @@ import java.util.ArrayDeque;
  *     <li>open brackets must be closed by the same type of brackets;</li>
  *     <li>open brackets must be closed in the correct order.</li>
  * </ul>
+ *
+ * <pre>
+ * Example:
+ *   parentheses = "()[{}]"
+ *   valid       = true
+ *
+ *   parentheses = "({[)"
+ *   valid       = false
+ * </pre>
+ *
  * <a href="https://leetcode.ca/2015-12-20-20-Valid-Parentheses/">Valid parentheses: problem solution</a>
  */
 public class ValidParentheses implements Runnable {
