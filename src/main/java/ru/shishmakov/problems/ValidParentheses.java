@@ -61,16 +61,16 @@ public class ValidParentheses implements Runnable {
             char nextChar = parentheses.charAt(index);
 
             if (nextChar == '{' || nextChar == '[' || nextChar == '(') {
-                queue.addLast(nextChar); // add next open parentheses
+                queue.offerLast(nextChar); // add next open parentheses
             } else {
                 if (queue.isEmpty()) {
                     return false; // wrong sequence
                 }
 
                 char lastChar = queue.peekLast();
-                if ((nextChar == ')' && lastChar == '(')
-                        || (nextChar == '}' && lastChar == '{')
-                        || (nextChar == ']' && lastChar == '[')
+                if (('(' == lastChar && nextChar == ')')
+                        || ('{' == lastChar && nextChar == '}')
+                        || ('[' == lastChar && nextChar == ']')
                 ) {
                     queue.removeLast(); // remove previous open parentheses
                 } else {

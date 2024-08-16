@@ -23,7 +23,7 @@ public class ValidParenthesesTest {
     }
 
     @ParameterizedTest(name = "parentheses {0} = false")
-    @ValueSource(strings = {"[({)]}", "({[", "()[{!}]", "qwe", ""})
+    @ValueSource(strings = {"[({)]}", "({[", "()[{!}]", "qwe", "", " "})
     void stringInvalidIfOpenedAndClosedParenthesesHaveSequenceErrors(String param) {
         // given
         var parentheses = new ValidParentheses(param);
