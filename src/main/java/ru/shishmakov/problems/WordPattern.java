@@ -68,6 +68,8 @@ public class WordPattern implements Runnable {
             charToWord.putIfAbsent(pChar, word);
             wordToChar.putIfAbsent(word, pChar);
 
+            // a   b   (c)  a
+            // dog cat (cat) dog
             if (!Objects.equals(word, charToWord.get(pChar)) ||
                     !Objects.equals(pChar, wordToChar.get(word))) {
                 return false;
