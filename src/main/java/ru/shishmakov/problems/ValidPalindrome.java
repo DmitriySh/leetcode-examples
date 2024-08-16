@@ -55,8 +55,8 @@ public class ValidPalindrome implements Runnable {
         int rightIndex = value.length() - 1;
 
         while (leftIndex < rightIndex) {
-            char leftChar = value.charAt(leftIndex);
-            char rightChar = value.charAt(rightIndex);
+            char leftChar = Character.toLowerCase(value.charAt(leftIndex));
+            char rightChar = Character.toLowerCase(value.charAt(rightIndex));
 
             if (!Character.isLetterOrDigit(leftChar)) {
                 leftIndex++;
@@ -66,7 +66,7 @@ public class ValidPalindrome implements Runnable {
                 rightIndex--;
                 continue; // skip char
             }
-            if (Character.toLowerCase(leftChar) == Character.toLowerCase(rightChar)) {
+            if (leftChar == rightChar) {
                 leftIndex++;
                 rightIndex--; // go next chars
             } else {
