@@ -8,8 +8,21 @@ import java.lang.invoke.MethodHandles;
 /**
  * 242 - Valid Anagram.
  * <p/>
+ * Given two strings `source` and `target`, return `true` if `target` is an anagram of `source`, and `false` otherwise.<br/>
+ * Note: an <b>Anagram</b> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
  *
- <a href="https://leetcode.ca/2016-07-29-242-Valid-Anagram/">Valid Anagram: problem solution</a>
+ * <pre>
+ * Example:
+ *   source = "anagram"
+ *   target = "nagaram"
+ *   valid  = true
+ *
+ *   source = "rat"
+ *   target = "car"
+ *   valid  = false
+ * </pre>
+ *
+ * <a href="https://leetcode.ca/2016-07-29-242-Valid-Anagram/">Valid Anagram: problem solution</a>
  */
 public class ValidAnagram implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
