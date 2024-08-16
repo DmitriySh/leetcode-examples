@@ -14,6 +14,16 @@ import java.lang.invoke.MethodHandles;
  *     <li>after converting all uppercase letters into lowercase letters, it reads the same forward and backward;</li>
  *     <li>alphanumeric characters include letters and numbers and removing all non-alphanumeric characters.</li>
  * </ul>
+ *
+ * <pre>
+ * Example:
+ *   text   = "No lemon, no melon!"
+ *   valid  = true
+ *
+ *   text   = "A23"
+ *   valid  = false
+ * </pre>
+ *
  * <a href="https://leetcode.ca/2016-04-03-125-Valid-Palindrome/">Valid palindrome: problem solution</a>
  */
 public class ValidPalindrome implements Runnable {
