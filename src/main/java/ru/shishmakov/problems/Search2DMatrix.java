@@ -53,13 +53,13 @@ public class Search2DMatrix implements Runnable {
         logger.info("Start searching the number: {}...", number);
         printMatrix(matrix);
 
-        NumberResult result = searchNumber();
+        NumberResult result = searchNumber(matrix, number);
         this.found = result.foundNumber;
         this.position = result.positionNumber;
         logger.info("Result. The number was: {}", result);
     }
 
-    private NumberResult searchNumber() {
+    private NumberResult searchNumber(int[][] matrix, int number) {
         boolean found = false;
         Map.Entry<Integer, Integer> position = null;
         int rows = matrix.length;
