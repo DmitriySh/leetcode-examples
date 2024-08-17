@@ -13,10 +13,10 @@ import java.util.Map;
  * <p/>
  * Given a 'number' and an MxN integer 2D 'matrix' with the following two properties:
  * <ul>
- * <li>each row is sorted in non-decreasing order</li>
- * <li>the first integer of each row is greater than the last integer of the previous row</li>
+ *   <li>each row is sorted in non-decreasing order;</li>
+ *   <li>the first integer of each row is greater than the last integer of the previous row;</li>
  * </ul>
- *
+ * <p>
  * Return true if 'number' is in matrix or false otherwise.<br/>
  * <a href="https://leetcode.ca/2016-02-12-74-Search-a-2D-Matrix/">Search a 2D Matrix: problem solution</a>
  */
@@ -104,15 +104,7 @@ public class Search2DMatrix implements Runnable {
         logger.info("");
     }
 
-    private static final class NumberResult {
-        private final boolean foundNumber;
-        private final Map.Entry<Integer, Integer> positionNumber;
-
-        public NumberResult(boolean found, Map.Entry<Integer, Integer> position) {
-            foundNumber = found;
-            positionNumber = position;
-        }
-
+    private record NumberResult(boolean foundNumber, Map.Entry<Integer, Integer> positionNumber) {
         @Override
         public String toString() {
             return this.foundNumber
