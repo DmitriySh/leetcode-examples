@@ -17,14 +17,11 @@ import java.util.List;
  *   reversed : 4  ->  3  ->  2  ->  1 -> null
  *
  * Explanation:
- *   reversed    origin  next
- *     null   |    1  ->  2  ->  3  ->  4  ->  null
- *         reversed  origin  next
- *     null <- 1   |   2  ->  3  ->  4  ->  null
- *              reversed  origin  next
- *     null <- 1 <- 2   |   3  ->  4  ->  null
- *
- *     ...
+ *   origin   : 1  ->  2  ->  3  ->  4  ->  null
+ *   reversed : 1 -> null
+ *              2  ->  1 -> null
+ *              3  ->  2  ->  1 -> null
+ *              4  ->  3  ->  2  ->  1 -> null
  * </pre>
  *
  * <a href="https://leetcode.ca/2016-06-23-206-Reverse-Linked-List/">Reverse Linked List: problem solution</a>
@@ -54,12 +51,17 @@ public class ReverseLinkedList implements Runnable {
     }
 
     private ListNode reverseList(ListNode origin) {
-        ListNode reversed = null;
-        while (origin != null) {
-            ListNode next = origin.next;
-            origin.next = reversed;
-            reversed = origin;
-            origin = next;
+        if (origin == null) return null;
+
+        // origin: 1  ->  2  ->  3  ->  4 -> null
+        // 1 -> null
+        // 2  ->  1 -> null
+        // 3  ->  2  ->  1 -> null
+        // 4  ->  3  ->  2  ->  1 -> null
+        ListNode reversed = new ListNode(origin.value, null);
+        while (origin.next != null) {
+            reversed = new ListNode(origin.next.value, reversed);
+            origin = origin.next;
         }
         return reversed;
     }
@@ -70,13 +72,13 @@ public class ReverseLinkedList implements Runnable {
     private ListNode copyList(ListNode origin) {
         if (origin == null) return null;
 
-        ListNode cursor = new ListNode(origin.value, null); // will help build a new chain
-        ListNode result = cursor; // reference to the top of linked list
-        ListNode originNext = origin.next;
-        while (originNext != null) {
-            cursor.next = new ListNode(originNext.value, null);
-            cursor = cursor.next;
-            originNext = originNext.next;
+        // 1  ->  2  ->  3  ->  4 -> null
+        final ListNode result = new ListNode(origin.value, null); // head of new chain
+        ListNode nextNode = result;
+        while (origin.next != null) {
+            nextNode.next = new ListNode(origin.next.value, null);
+            nextNode = nextNode.next;
+            origin = origin.next;
         }
         return result;
     }
