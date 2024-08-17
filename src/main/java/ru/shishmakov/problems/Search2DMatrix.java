@@ -16,7 +16,19 @@ import java.util.Map;
  *   <li>each row is sorted in non-decreasing order;</li>
  *   <li>the first integer of each row is greater than the last integer of the previous row;</li>
  * </ul>
- * <p>
+ *
+ * <pre>
+ * Example:
+ *    [[1, 2, 3],
+ *    [4, 5, 6]]
+ *    double array length = 6, search number = 6
+ *
+ *    1) left = 0, right = 5; middle = 2  =>  value[0][2] = 3
+ *    2) left = 3, right = 5; middle = 4  =>  value[1][1] = 5
+ *    3) left = 5, right = 5; middle = 5  =>  value[1][2] = 6 (found)
+ *
+ * </pre>
+ *
  * Return true if 'number' is in matrix or false otherwise.<br/>
  * <a href="https://leetcode.ca/2016-02-12-74-Search-a-2D-Matrix/">Search a 2D Matrix: problem solution</a>
  */
@@ -60,13 +72,15 @@ public class Search2DMatrix implements Runnable {
     }
 
     private NumberResult searchNumber(int[][] matrix, int number) {
-        boolean found = false;
-        Map.Entry<Integer, Integer> position = null;
+        boolean foundNumber = false;
+        Map.Entry<Integer, Integer> positionNumber = null;
         int rows = matrix.length;
         int cols = matrix[0].length;
 
-        // [[1, 2, 3], [4, 5, 6]] => 6 length
-        // left = 0, right = 5, middle = 2
+        // [[1, 2, 3],
+        // [4, 5, 6]] => length = 6
+        // left = 0, right = 5,
+        // middle = 2, value[0][2] = 3
         int left = 0;
         int right = rows * cols - 1;
         while (left <= right) {
@@ -81,13 +95,13 @@ public class Search2DMatrix implements Runnable {
             } else if (value > number) {
                 right = middle - 1;
             } else { // equal
-                found = true;
-                position = Map.entry(col, row);
+                foundNumber = true;
+                positionNumber = Map.entry(col, row);
                 break;
             }
         }
         logger.info("Stop.");
-        return new NumberResult(found, position);
+        return new NumberResult(foundNumber, positionNumber);
     }
 
     private void printPosition(int col, int row, int value) {
