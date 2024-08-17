@@ -44,7 +44,7 @@ public class ReverseLinkedListTest {
     @Test
     void reverseEmptyLinkedListSuccessfully() {
         // given
-        var originList = new ListNode();
+        var originList = new ListNode(null, null);
         var linkedList = new ReverseLinkedList(originList);
 
         // when
@@ -53,8 +53,8 @@ public class ReverseLinkedListTest {
 
         // then
         assertThat(originList.toString())
-                .isEqualTo("[0]");
+                .isEqualTo("[]");
         assertThat(reversedList.toString())
-                .isEqualTo("[0]");
+                .isEqualTo("[]");
     }
 }

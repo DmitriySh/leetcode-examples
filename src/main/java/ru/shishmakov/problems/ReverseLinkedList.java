@@ -70,11 +70,11 @@ public class ReverseLinkedList implements Runnable {
     private ListNode copyList(ListNode origin) {
         if (origin == null) return null;
 
-        ListNode cursor = new ListNode(origin.val); // will help build a new chain
+        ListNode cursor = new ListNode(origin.value, null); // will help build a new chain
         ListNode result = cursor; // reference to the top of linked list
         ListNode originNext = origin.next;
         while (originNext != null) {
-            cursor.next = new ListNode(originNext.val);
+            cursor.next = new ListNode(originNext.value, null);
             cursor = cursor.next;
             originNext = originNext.next;
         }
@@ -82,26 +82,19 @@ public class ReverseLinkedList implements Runnable {
     }
 
     public static ListNode buildDefaultListNode(int size) {
-        ListNode node = new ListNode(size);
-        for (int i = size - 1; i > 0; i--) {
-            node = new ListNode(i /* value */, node /* next */);
+        ListNode node = null;
+        for (int value = size; value > 0; value--) {
+            node = new ListNode(value, node);
         }
         return node;
     }
 
     public static final class ListNode {
-        int val;
-        ListNode next;
+        private Integer value;
+        private ListNode next;
 
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
+        public ListNode(Integer value, ListNode next) {
+            this.value = value;
             this.next = next;
         }
 
@@ -109,8 +102,8 @@ public class ReverseLinkedList implements Runnable {
         public String toString() {
             ListNode listNode = this;
             List<Integer> arrayList = new ArrayList<>();
-            while (listNode != null) {
-                arrayList.add(listNode.val);
+            while (listNode != null && listNode.value != null) {
+                arrayList.add(listNode.value);
                 listNode = listNode.next;
             }
             return arrayList.toString();
