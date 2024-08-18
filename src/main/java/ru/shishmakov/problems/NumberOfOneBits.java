@@ -17,20 +17,27 @@ import java.util.List;
  * Examples:
  *      0000 0000 is 8 bit (1 byte)
  * ------------------------
- *      0000 0000 = 0 -> 0 bit
- *      0000 0001 = 1 -> 1 bit
- *      0000 0011 = 3 -> 2 bits
- *      0000 0111 = 7 -> 3 bits
+ *      0000 0000 = 0  -> 0 bit
+ *      0000 0001 = 1  -> 1 bit
+ *      0000 0011 = 3  -> 2 bits
+ *      0000 0111 = 7  -> 3 bits
+ *      0000 1111 = 15 -> 4 bits
  * ------------------------
  *      14 >> 0 = 14
- *      (0000 1110) & (0000 0001) = 0
  *      14 >> 1 = 7
- *      (0000 0111) & (0000 0001) = 1
  *      14 >> 2 = 3
- *      (0000 0011) & (0000 0001) = 1
  *      14 >> 3 = 1
- *      (0000 0001) & (0000 0001) = 1
  *      14 >> 4 = 0
+ *
+ *      14             1
+ *      (0000 1110) & (0000 0001) = 0
+ *      7              1
+ *      (0000 0111) & (0000 0001) = 1
+ *      3              1
+ *      (0000 0011) & (0000 0001) = 1
+ *      1              1
+ *      (0000 0001) & (0000 0001) = 1
+ *      0              0
  *      (0000 0000) & (0000 0001) = 0
  *      Sum = 3 bits
  * </pre>
@@ -41,7 +48,6 @@ public class NumberOfOneBits implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final int DEFAULT_NUMBER = 712;
 
-    private final List<Integer> shifts = new ArrayList<>(32);
     private final int number;
     private int oneBitsCount;
 
@@ -58,21 +64,27 @@ public class NumberOfOneBits implements Runnable {
         logger.info("Start counting the number of '1' bits...");
         logger.info("Number: {}", number);
 
-        this.oneBitsCount = countBits();
-        shifts.forEach(n -> logger.info(
+        var bitsResult = countBits(number);
+        this.oneBitsCount = bitsResult.count;
+
+        bitsResult.shifts.forEach(n -> logger.info(
                 MessageFormat.format("Shifted number = {0}; bits = {1}", n, Integer.toBinaryString(n))
         ));
         logger.info("Result. It was counted {} of '1' bits", this.oneBitsCount);
     }
 
-    private int countBits() {
+    private BitsResult countBits(int number) {
         int count = 0;
 
+        var shifts = new ArrayList<Integer>(32);
         for (int i = 0; i < 32; i++) {
-            int temp = this.number;
+            int temp = number;
             count += (temp = (temp >> i)) & 1;
             shifts.add(temp);
         }
-        return count;
+        return new BitsResult(count, shifts);
+    }
+
+    private record BitsResult(int count, List<Integer> shifts) {
     }
 }
