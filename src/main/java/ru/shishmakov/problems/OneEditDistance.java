@@ -8,13 +8,13 @@ import java.lang.invoke.MethodHandles;
 /**
  * 161 - One Edit Distance.
  * <p/>
- * Given two strings 'a' and 'b', determine if they are both one edit distance apart.
+ * Given two strings 'first' and 'second', determine if they are both one edit distance apart.
  * <p/>
  * There are 3 possibilities to satisfy one edit distance apart:
  * <ul>
- *     <li>insert one character into 'a' to get 'b';</li>
- *     <li>delete one character from 'a' to get 'b';</li>
- *     <li>replace one character of 'a' to get 'b'.</li>
+ *     <li>insert one character into 'first' to get 'second';</li>
+ *     <li>delete one character from 'first' to get 'second';</li>
+ *     <li>replace one character of 'first' to get 'second'.</li>
  * </ul>
  *
  * <pre>
@@ -72,22 +72,26 @@ public class OneEditDistance implements Runnable {
         // abcd
         // abxcd
         int minLength = Math.min(fLength, sLength);
-        int position = -1;
-        while (position++ < minLength - 1) {
+        int position = 0;
+        while (position < minLength) {
             char fChar = first.charAt(position);
             char sChar = second.charAt(position);
             if (fChar != sChar) {
                 logger.info("'{}' and '{}' = not ok", fChar, sChar);
                 if (fLength == sLength) {
+                    // replace 1 char?
                     return equalStr(first.substring(position + 1), second.substring(position + 1));
                 } else if (fLength > sLength) {
+                    // delete 1 char?
                     return equalStr(first.substring(position + 1), second.substring(position));
                 } else {
+                    // insert 1 char?
                     return equalStr(first.substring(position), second.substring(position + 1));
                 }
             } else {
                 logger.info("'{}' and '{}' = ok", fChar, sChar);
             }
+            position++;
         }
         return Math.abs(fLength - sLength) == 1;
     }

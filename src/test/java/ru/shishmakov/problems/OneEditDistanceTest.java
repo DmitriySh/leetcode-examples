@@ -23,7 +23,7 @@ public class OneEditDistanceTest {
     }
 
     @ParameterizedTest(name = "first [{0}], second [{1}] = false")
-    @CsvSource(value = {"ab,ba", "ab,abcd"})
+    @CsvSource(value = {"ab,ba", "ab,ab", "ab,abcd"})
     void stringsFalseIfNoOneEdit(String first, String second) {
         // given
         var oneEditDistance = new OneEditDistance(first, second);
