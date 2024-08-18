@@ -27,6 +27,24 @@ public class RemoveDuplicatesFromSortedArrayTest {
     }
 
     @Test
+    void shouldRemoveDuplicatesFromArrayWithNegativeElements() {
+        // given
+        int[] numsBefore = new int[]{-7, -1, -1, -1, 0, 2, 3, 3, 3, 4};
+        var removeDuplicates = new RemoveDuplicatesFromSortedArray(numsBefore.clone());
+
+        // when
+        removeDuplicates.run();
+        int[] numsAfter = removeDuplicates.getNums();
+        int payloadSize = removeDuplicates.getPayloadSize();
+
+        // then
+        assertThat(payloadSize)
+                .isEqualTo(6);
+        assertThat(numsAfter)
+                .isEqualTo(new int[]{-7, -1, 0, 2, 3, 4, 3, 3, 3, 4}); // payload: [-7, -1, 0, 2, 3, 4]
+    }
+
+    @Test
     void shouldRemoveDuplicatesFromArrayWithZeroElements() {
         // given
         int[] numsBefore = new int[]{0, 0, 0};
@@ -45,9 +63,9 @@ public class RemoveDuplicatesFromSortedArrayTest {
     }
 
     @Test
-    void shouldRemoveDuplicatesFromArrayWithNegativeElements() {
+    void shouldSkipArrayWithOneElements() {
         // given
-        int[] numsBefore = new int[]{-7, -1, -1, -1, 0, 2, 3, 3, 3, 4};
+        int[] numsBefore = new int[]{0};
         var removeDuplicates = new RemoveDuplicatesFromSortedArray(numsBefore.clone());
 
         // when
@@ -57,8 +75,8 @@ public class RemoveDuplicatesFromSortedArrayTest {
 
         // then
         assertThat(payloadSize)
-                .isEqualTo(6);
+                .isEqualTo(1);
         assertThat(numsAfter)
-                .isEqualTo(new int[]{-7, -1, 0, 2, 3, 4, 3, 3, 3, 4}); // payload: [-7, -1, 0, 2, 3, 4]
+                .isEqualTo(new int[]{0}); // payload: [0]
     }
 }

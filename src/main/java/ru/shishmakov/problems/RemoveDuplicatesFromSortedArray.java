@@ -14,6 +14,13 @@ import java.lang.invoke.MethodHandles;
  *     <li>the relative order of the elements should be kept the same</li>
  *     <li>return `payloadSize` - the number of unique elements in `nums`</li>
  * </ul>
+ * <p>
+ * Constraints:
+ * <ul>
+ *     <li>1 <= `nums`.length <= 3 * 104</li>
+ *     <li>-100 <= `nums`[i] <= 100</li>
+ *     <li>`nums` is sorted in non-decreasing order</li>
+ * </ul>
  *
  * <pre>
  * Example:
@@ -68,6 +75,6 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
             right++;
         }
 
-        return left + 1;
+        return left + 1; // count with zero element
     }
 }
