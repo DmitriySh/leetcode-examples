@@ -21,12 +21,27 @@ import java.util.List;
  *
  * <pre>
  * Example:
- *   origin : 1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
- *   middle node : 4 -> 5 -> 6 -> null
- *   middle position : 3
- *   middle value : 4
  *
- * Explanation: use fast and slow cursors by one iteration
+ *   slow
+ *   fast
+ *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *
+ *          slow
+ *                 fast
+ *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *
+ *                 slow
+ *                             fast
+ *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *
+ *                        slow
+ *                                        fast
+ *    1  ->  2  ->  3  -> [4] -> 5 -> 6 -> null
+ *
+ *   middle node position : 3
+ *   middle node value : 4
+ *
+ * Explanation: use 'fast' and 'slow' cursors by one iteration
  * </pre>
  *
  * <a href="https://github.com/carlos-anaya/leetcode/blob/master/problems/876-Middle%20of%20the%20Linked%20List.md">Middle of the Linked List: problem solution</a>
@@ -56,22 +71,24 @@ public class MiddleOfLinkedList implements Runnable {
         logger.info("Start searching the middle of LinkedList...");
         logger.info("Origin linked list: {}", linkedList);
 
-        NodeResult result = searchNodeIndex(linkedList);
+        NodeResult result = searchMiddleNode(linkedList);
         this.middleNodeIndex = result.nodeIndex;
         this.middleNodeValue = result.node.value;
         logger.info("Result. {}", result);
     }
 
-    private NodeResult searchNodeIndex(ListNode origin) {
+    private NodeResult searchMiddleNode(ListNode origin) {
         int index = 0;
-        ListNode slowCursor = origin;
-        ListNode fastCursor = origin;
-        while (fastCursor != null && fastCursor.next != null) {
-            slowCursor = slowCursor.next;
-            fastCursor = fastCursor.next.next;
+
+        var fast = origin;
+        var slow = origin;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
             index++;
         }
-        return new NodeResult(index, slowCursor);
+
+        return new NodeResult(index, slow);
     }
 
     public static ListNode buildDefaultListNode(int size) {
