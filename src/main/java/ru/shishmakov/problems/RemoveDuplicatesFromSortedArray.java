@@ -8,6 +8,21 @@ import java.lang.invoke.MethodHandles;
 /**
  * 26 - Remove Duplicates from Sorted Array.
  * <p/>
+ * Given an integer array `nums` sorted in non-decreasing order. You need:
+ * <ul>
+ *     <li>remove the duplicates <u>in-place</u> such that each unique element appears only once</li>
+ *     <li>the relative order of the elements should be kept the same</li>
+ *     <li>return `payloadSize` - the number of unique elements in `nums`</li>
+ * </ul>
+ *
+ * <pre>
+ * Example:
+ *   origin array   : [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+ *   expected array : [0, 1, 2, 3, 4, 2, 2, 3, 3, 4]
+ *   payload        : [0, 1, 2, 3, 4], size = 5
+ *
+ * </pre>
+ *
  * <a href="https://lifewithdata.com/2023/06/01/leetcode-remove-duplicates-from-sorted-array-solution-in-python/">Remove Duplicates from Sorted Array: problem solution</a>
  */
 public class RemoveDuplicatesFromSortedArray implements Runnable {
