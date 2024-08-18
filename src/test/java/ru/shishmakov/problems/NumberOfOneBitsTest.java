@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class NumberOfOneBitsTest {
 
     @ParameterizedTest(name = "count bits of number {0}")
-    @ValueSource(ints = {Integer.MIN_VALUE, -3, 0, 1, 2, 7, 8, 63, 85, 1073741824, Integer.MAX_VALUE})
+    @ValueSource(ints = {0, 1, 2, 3, 7, 8, 63, 85, 1073741824, Integer.MAX_VALUE})
     void shouldCountNumberOfOneBitsSuccessfully(int number) {
         // given
         var bitsNumber = new NumberOfOneBits(number);

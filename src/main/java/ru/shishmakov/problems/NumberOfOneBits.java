@@ -23,23 +23,13 @@ import java.util.List;
  *      0000 0111 = 7  -> 3 bits
  *      0000 1111 = 15 -> 4 bits
  * ------------------------
- *      14 >> 0 = 14
- *      14 >> 1 = 7
- *      14 >> 2 = 3
- *      14 >> 3 = 1
- *      14 >> 4 = 0
- *
- *      14             1
- *      (0000 1110) & (0000 0001) = 0
- *      7              1
- *      (0000 0111) & (0000 0001) = 1
- *      3              1
- *      (0000 0011) & (0000 0001) = 1
- *      1              1
- *      (0000 0001) & (0000 0001) = 1
- *      0              0
- *      (0000 0000) & (0000 0001) = 0
- *      Sum = 3 bits
+ *   1)  7             6            6
+ *      (0000 0111) & (0000 0110) = 0000 0110
+ *   2)  6             5            4
+ *      (0000 0110) & (0000 0101) = 0000 0100
+ *   3)  4             3            0
+ *      (0000 0100) & (0000 0011) = 0000 0000
+ *       Sum = 3 bits
  * </pre>
  *
  * <a href="https://leetcode.ca/2016-06-08-191-Number-of-1-Bits/">Number of 1 Bits: problem solution</a>
@@ -75,13 +65,13 @@ public class NumberOfOneBits implements Runnable {
 
     private BitsResult countBits(int number) {
         int count = 0;
-
-        var shifts = new ArrayList<Integer>(32);
-        for (int i = 0; i < 32; i++) {
-            int temp = number;
-            count += (temp = (temp >> i)) & 1;
-            shifts.add(temp);
+        var shifts = new ArrayList<Integer>();
+        while (number != 0) {
+            shifts.add(number);
+            number = number & (number - 1);
+            count++;
         }
+        shifts.add(number);
         return new BitsResult(count, shifts);
     }
 
