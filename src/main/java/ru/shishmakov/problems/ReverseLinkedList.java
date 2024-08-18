@@ -92,7 +92,7 @@ public class ReverseLinkedList implements Runnable {
     }
 
     public static final class ListNode {
-        private Integer value;
+        private final Integer value;
         private ListNode next;
 
         public ListNode(Integer value, ListNode next) {
