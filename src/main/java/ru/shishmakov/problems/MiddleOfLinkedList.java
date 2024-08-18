@@ -12,6 +12,13 @@ import java.util.List;
  * 876 - Middle of the Linked List.
  * <p/>
  * Given the 'head' of a singly linked list, return its middle node. If there are two middle nodes, return the second middle node.
+ * <p/>
+ * Constraints:
+ * <ul>
+ *     <li>the number of nodes in the list is in the range [1..100]</li>
+ *     <li>1 <= Node.val <= 100</li>
+ * </ul>
+ *
  * <pre>
  * Example:
  *   origin : 1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
@@ -28,30 +35,30 @@ public class MiddleOfLinkedList implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final ListNode DEFAULT_LIST_NODE = buildDefaultListNode(5);
 
-    private final ListNode headOriginList;
-    private int nodeIndex;
-    private int nodeValue;
+    private final ListNode linkedList;
+    private int middleNodeIndex;
+    private int middleNodeValue;
 
-    public MiddleOfLinkedList(ListNode headOriginList) {
-        this.headOriginList = headOriginList;
+    public MiddleOfLinkedList(ListNode linkedList) {
+        this.linkedList = linkedList;
     }
 
-    public int getNodeIndex() {
-        return nodeIndex;
+    public int getMiddleNodeIndex() {
+        return middleNodeIndex;
     }
 
-    public int getNodeValue() {
-        return nodeValue;
+    public int getMiddleNodeValue() {
+        return middleNodeValue;
     }
 
     @Override
     public void run() {
         logger.info("Start searching the middle of LinkedList...");
-        logger.info("Origin linked list: {}", headOriginList);
+        logger.info("Origin linked list: {}", linkedList);
 
-        NodeResult result = searchNodeIndex(headOriginList);
-        this.nodeIndex = result.nodeIndex;
-        this.nodeValue = result.node.val;
+        NodeResult result = searchNodeIndex(linkedList);
+        this.middleNodeIndex = result.nodeIndex;
+        this.middleNodeValue = result.node.value;
         logger.info("Result. {}", result);
     }
 
@@ -68,26 +75,19 @@ public class MiddleOfLinkedList implements Runnable {
     }
 
     public static ListNode buildDefaultListNode(int size) {
-        ListNode node = new ListNode(size);
-        for (int i = size - 1; i > 0; i--) {
-            node = new ListNode(i /* value */, node /* next */);
+        ListNode node = null;
+        for (int value = size; value > 0; value--) {
+            node = new ListNode(value, node);
         }
         return node;
     }
 
     public static final class ListNode {
-        int val;
-        ListNode next;
+        private final int value;
+        private ListNode next;
 
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
+        ListNode(int value, ListNode next) {
+            this.value = value;
             this.next = next;
         }
 
@@ -96,7 +96,7 @@ public class MiddleOfLinkedList implements Runnable {
             ListNode listNode = this;
             List<Integer> arrayList = new ArrayList<>();
             while (listNode != null) {
-                arrayList.add(listNode.val);
+                arrayList.add(listNode.value);
                 listNode = listNode.next;
             }
             return arrayList.toString();
@@ -108,7 +108,7 @@ public class MiddleOfLinkedList implements Runnable {
         public String toString() {
             return MessageFormat.format(
                     "LinkedList[{0}] = {1} is a middle",
-                    nodeIndex, node.val
+                    nodeIndex, node.value
             );
         }
     }

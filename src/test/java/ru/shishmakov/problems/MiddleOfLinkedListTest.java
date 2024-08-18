@@ -1,63 +1,48 @@
 package ru.shishmakov.problems;
 
 import org.junit.jupiter.api.Test;
-import ru.shishmakov.problems.MiddleOfLinkedList.ListNode;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MiddleOfLinkedListTest {
 
     @Test
-    void evenSizeLinkedListShouldFindMiddleNodeSuccessfully() {
+    void shouldFindMiddleNodeForEvenLinkedListSizeSuccessfully() {
         // given
         var originList = MiddleOfLinkedList.buildDefaultListNode(6);
         var linkedList = new MiddleOfLinkedList(originList);
 
         // when
         linkedList.run();
-        int nodeIndex = linkedList.getNodeIndex();
-        int nodeValue = linkedList.getNodeValue();
+        int middleNodeIndex = linkedList.getMiddleNodeIndex();
+        int middleNodeValue = linkedList.getMiddleNodeValue();
 
         // then
-        assertThat(nodeIndex)
+        assertThat(originList.toString())
+                .isEqualTo("[1, 2, 3, 4, 5, 6]");
+        assertThat(middleNodeIndex)
                 .isEqualTo(3);
-        assertThat(nodeValue)
+        assertThat(middleNodeValue)
                 .isEqualTo(4);
     }
 
     @Test
-    void oddSizeLinkedListShouldFindMiddleNodeSuccessfully() {
+    void shouldFindMiddleNodeForOddLinkedListSizeSuccessfully() {
         // given
         var originList = MiddleOfLinkedList.buildDefaultListNode(5);
         var linkedList = new MiddleOfLinkedList(originList);
 
         // when
         linkedList.run();
-        int nodeIndex = linkedList.getNodeIndex();
-        int nodeValue = linkedList.getNodeValue();
+        int middleNodeIndex = linkedList.getMiddleNodeIndex();
+        int middleNodeValue = linkedList.getMiddleNodeValue();
 
         // then
-        assertThat(nodeIndex)
+        assertThat(originList.toString())
+                .isEqualTo("[1, 2, 3, 4, 5]");
+        assertThat(middleNodeIndex)
                 .isEqualTo(2);
-        assertThat(nodeValue)
+        assertThat(middleNodeValue)
                 .isEqualTo(3);
-    }
-
-    @Test
-    void emptyLinkedListShouldFindMiddleNodeSuccessfully() {
-        // given
-        var originList = new ListNode();
-        var linkedList = new MiddleOfLinkedList(originList);
-
-        // when
-        linkedList.run();
-        int nodeIndex = linkedList.getNodeIndex();
-        int nodeValue = linkedList.getNodeValue();
-
-        // then
-        assertThat(nodeIndex)
-                .isEqualTo(0);
-        assertThat(nodeValue)
-                .isEqualTo(0);
     }
 }
