@@ -8,8 +8,10 @@ import java.lang.invoke.MethodHandles;
 /**
  * 231 - Power of two.
  * <p/>
- * Given an integer 'n', return 'true' if it is a power of two and 'false' otherwise.<br/>
- * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x)
+ * Given an integer 'number', return 'true' if it is a power of two and 'false' otherwise.<br/>
+ * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x).<br/>
+ * Constraints: -231 <= 'number' <= 231 - 1
+ * <p/>
  * <pre>
  * Examples:
  *      0000 0000 is 8 bit (1 byte)
@@ -20,13 +22,20 @@ import java.lang.invoke.MethodHandles;
  *      0000 0100 = 2^2 = 4
  *      0000 1000 = 2^3 = 8
  *      0001 0000 = 2^4 = 16
+ *
+ *      16/2 = 8
+ *      8/2  = 4
+ *      4/2  = 2
+ *      2/2  = 1
+ *      1 => 0000 0001
+ *      if result binary notation has value '0000 0001' = source number is a power of two
  * ------------------------
  *     2nd case
  *     digit 8 = 0000 1000
  *     digit 1 = 0000 0001
  *     8 - 1 = 7 = 0000 0111
  *     (0000 1000) AND (0000 0111) = 0000 0000
- *     if binary multiplication has result '0000 0000' = number is a power of two
+ *     if binary multiplication has value '0000 0000' = number is a power of two
  *
  * </pre>
  *
@@ -52,11 +61,11 @@ public class PowerOfTwo implements Runnable {
         logger.info("Start validating the number...");
         logger.info("Number: {}", number);
 
-        this.powerOfTwo = validateNumber2(number);
+        this.powerOfTwo = validateNumberByMultiplication(number);
         logger.info("Result. The number is: {}", (this.powerOfTwo ? "power of two" : "not power of two"));
     }
 
-    private boolean validateNumber1(int number) {
+    private boolean validateNumberByDivision(int number) {
         if (number <= 0) {
             return false;
         }
@@ -68,7 +77,7 @@ public class PowerOfTwo implements Runnable {
         return number == 1;
     }
 
-    private boolean validateNumber2(int number) {
+    private boolean validateNumberByMultiplication(int number) {
         if (number <= 0) {
             return false;
         }
