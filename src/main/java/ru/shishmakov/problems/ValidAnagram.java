@@ -59,6 +59,7 @@ public class ValidAnagram implements Runnable {
             return false;
         }
 
+        // A - 65 ASCII; Z - 90  ASCII
         // a - 97 ASCII; z - 122 ASCII
         int[] alphabetCharsCount = new int[ENGLISH_ALPHABET_COUNT];
         for (int i = 0; i < sourceText.length(); i++) {
