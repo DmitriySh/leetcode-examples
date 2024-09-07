@@ -15,7 +15,7 @@ public class FibonacciNumberTest {
 
         // when
         fibonacciNumber.run();
-        int result = fibonacciNumber.getCalculatedNumber();
+        int result = fibonacciNumber.getFibNumber();
 
         // then
         assertThat(result)
