@@ -9,21 +9,22 @@ import java.lang.invoke.MethodHandles;
  * 509 - Fibonacci Number.
  * <p/>
  * The Fibonacci numbers, commonly denoted 'F(n)' form a sequence, called the <u>Fibonacci sequence</u>,
- * such that each number is the sum of the two preceding ones, starting from '0' and '1'.<br/>
- * Note:
- * F(0) = 0, F(1) = 1,<br/>
+ * such that each number is the sum of the two preceding ones, starting from '0' and '1'.
+ * <p/>
+ * Note: <br/>
+ * F(0) = 0, F(1) = 1 <br/>
  * F(n) = F(n - 1) + F(n - 2), for n > 1 (0 <= n <= 30)
  *
  * <pre>
  * Example:
+ *   fib(2) = fib(1) + fib(0) = 1 + 0 = 1
+ *   fib(3) = fib(2) + fib(1) = (fib(1) + fib(0)) + fib(1) = 1 + 0 + 1 = 2
+ *   fib(4) = fib(3) + fib(2) = (fib(2) + fib(1)) + (fib(1) + fib(0)) = fib(1) + fib(0) + fib(1) + fib(1) + fib(0) = 1 + 0 + 1 + 1 + 0 = 3
  *
- * fib(2) = fib(1) + fib(0) = 1 + 0 = 1
- * fib(3) = fib(2) + fib(1) = (fib(1) + fib(0)) + fib(1) = 1 + 0 + 1 = 2
- * fib(4) = fib(3) + fib(2) = (fib(2) + fib(1)) + (fib(1) + fib(0)) = fib(1) + fib(0) + fib(1) + fib(1) + fib(0) = 1 + 0 + 1 + 1 + 0 = 3
- *
+ *   indexes     : 0  1  2  3  4  5  6  7  8  9  10 ...
+ *   calculated
+ *   fib. number : 0  1  1  2  3  5  8  13 21 34 55 ...
  * </pre>
- * <p>
- * <p/>
  * <a href="https://leetcode.ca/2017-04-22-509-Fibonacci-Number/">Fibonacci Number: problem solution</a>
  */
 public class FibonacciNumber implements Runnable {
