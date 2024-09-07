@@ -24,19 +24,19 @@ import java.util.List;
  *
  *   slow
  *   fast
- *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *    [(1)]  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
  *
  *          slow
  *                 fast
- *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *    1  ->  [2]  ->  (3)  ->  4 -> 5 -> 6 -> null
  *
  *                 slow
  *                             fast
- *    1  ->  2  ->  3  ->  4 -> 5 -> 6 -> null
+ *    1  ->  2  ->  [3]  ->  4 -> (5) -> 6 -> null
  *
  *                        slow
  *                                        fast
- *    1  ->  2  ->  3  -> [4] -> 5 -> 6 -> null
+ *    1  ->  2  ->  3  -> [4] -> 5 -> 6 -> (null)
  *
  *   middle node position : 3
  *   middle node value : 4
