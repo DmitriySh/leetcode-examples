@@ -3,6 +3,7 @@
  */
 package ru.shishmakov;
 
+import ru.shishmakov.problems.FibonacciNumber;
 import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
@@ -44,6 +45,7 @@ public class App {
                     RemoveDuplicatesFromSortedArray.DEFAULT_ARRAY
             ).run();
             case "oneEditDistance" -> new OneEditDistance(OneEditDistance.FIRST, OneEditDistance.SECOND).run();
+            case "fibonacciNumber" -> new FibonacciNumber(FibonacciNumber.DEFAULT_NUMBER).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
