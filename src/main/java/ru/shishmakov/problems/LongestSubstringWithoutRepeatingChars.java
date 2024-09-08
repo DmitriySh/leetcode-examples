@@ -52,21 +52,21 @@ public class LongestSubstringWithoutRepeatingChars implements Runnable {
     }
 
     private int getLongestSubstringLength(String value) {
-        Set<Character> uniqueChars = new HashSet<>();
+        Set<Character> substringChars = new HashSet<>();
         int left = 0, right = 0;
         int maxLength = 0;
 
         // move the substring window: [left .. right]
         while (right < value.length()) {
             char charRightPosition = value.charAt(right);
-            if (uniqueChars.add(charRightPosition)) {
+            if (substringChars.add(charRightPosition)) {
                 right++;
                 int substringLength = right - left;
                 maxLength = Math.max(maxLength, substringLength);
                 logger.info("Substring: {}, length: {}", value.substring(left, right), substringLength);
             } else {
                 char charLeftPosition = value.charAt(left);
-                uniqueChars.remove(charLeftPosition);
+                substringChars.remove(charLeftPosition);
                 left++;
             }
         }
