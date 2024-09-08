@@ -13,6 +13,7 @@ import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.RemoveDuplicatesFromSortedArray;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
+import ru.shishmakov.problems.StringCompression;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidIpAddress;
 import ru.shishmakov.problems.ValidPalindrome;
@@ -46,6 +47,7 @@ public class App {
             ).run();
             case "oneEditDistance" -> new OneEditDistance(OneEditDistance.FIRST, OneEditDistance.SECOND).run();
             case "fibonacciNumber" -> new FibonacciNumber(FibonacciNumber.DEFAULT_NUMBER).run();
+            case "stringCompression" -> new StringCompression(StringCompression.DEFAULT_CHARS).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }

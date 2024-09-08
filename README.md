@@ -63,3 +63,4 @@ Result. Parentheses is: valid
   * removeDuplicatesFromSortedArray
   * oneEditDistance
   * fibonacciNumber
+  * stringCompression
