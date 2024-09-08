@@ -9,9 +9,9 @@ public class FibonacciNumberTest {
 
     @ParameterizedTest(name = "value=[{0}], calculated number=[{1}]")
     @CsvSource(value = {"0,0", "1,1", "2,1", "3,2", "4,3", "7,13", "30,832040"})
-    public void name(int number, int calculatedNumber) {
+    public void calculateFibonacciNumberByIndex(int index, int calculatedNumber) {
         // given
-        var fibonacciNumber = new FibonacciNumber(number);
+        var fibonacciNumber = new FibonacciNumber(index);
 
         // when
         fibonacciNumber.run();
