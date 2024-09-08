@@ -4,6 +4,7 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.FibonacciNumber;
+import ru.shishmakov.problems.LongestSubstringWithoutRepeatingChars;
 import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
@@ -48,6 +49,7 @@ public class App {
             case "oneEditDistance" -> new OneEditDistance(OneEditDistance.FIRST, OneEditDistance.SECOND).run();
             case "fibonacciNumber" -> new FibonacciNumber(FibonacciNumber.DEFAULT_NUMBER).run();
             case "stringCompression" -> new StringCompression(StringCompression.DEFAULT_CHARS).run();
+            case "longestSubstringWithoutRepeatingChars" -> new LongestSubstringWithoutRepeatingChars(LongestSubstringWithoutRepeatingChars.DEFAULT_STRING).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
