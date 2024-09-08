@@ -23,7 +23,7 @@ public class LongestSubstringWithoutRepeatingCharsTest {
     }
 
     @ParameterizedTest(name = "string={0}, length={1}")
-    @CsvSource(value = {"'',0", "a,1", "aab,2", "abc,3", "bbbbbb,1", "abcaabcbd,3"})
+    @CsvSource(value = {"'',0", "a,1", "aab,2", "' & ',2", "abc,3", "bbbbbb,1", "abcaabcbd,3", "??#01122,4"})
     void findLongestSubstringLength(String string, int expectedLength) {
         // given
         var longestSubstring = new LongestSubstringWithoutRepeatingChars(string);
