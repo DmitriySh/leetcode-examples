@@ -56,6 +56,7 @@ public class LongestSubstringWithoutRepeatingChars implements Runnable {
         int left = 0, right = 0;
         int maxLength = 0;
 
+        // move the substring window: [left .. right]
         while (right < value.length()) {
             char charRightPosition = value.charAt(right);
             if (uniqueChars.add(charRightPosition)) {
