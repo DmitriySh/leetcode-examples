@@ -23,7 +23,7 @@ import java.util.Set;
  *   substring length = 1 (b)
  *
  *   str = pwwkew
- *   substring length = 3 (wke)
+ *   substring length = 3 (wke or kew)
  * </pre>
  * <a href="https://leetcode.ca/2015-12-03-3-Longest-Substring-Without-Repeating-Characters/">Longest Substring Without Repeating Characters: problem solution</a>
  */
@@ -71,14 +71,5 @@ public class LongestSubstringWithoutRepeatingChars implements Runnable {
         }
 
         return maxLength;
-    }
-
-    public static void main(String[] args) {
-        var longestSubstring = new LongestSubstringWithoutRepeatingChars(DEFAULT_STRING);
-        longestSubstring.run();
-
-        int length = longestSubstring.getLength();
-        System.out.println("String: " + longestSubstring.str);
-        System.out.println("Longest substring length: " + length);
     }
 }
