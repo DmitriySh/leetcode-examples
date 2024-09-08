@@ -22,11 +22,21 @@ import java.util.Arrays;
  *   <li>return the new payload length of the input character array 'chars'</li>
  * </ul>
  *
+ * <pre>
+ * Example:
+ *   source chars         : a, b, b, b, b, b, b, b, b, b, b, b, b, c
+ *   chars length         : 14
+ *
+ *   compressed chars     : a, b, 1, 2, c, b, b, b, b, b, b, b, b, c
+ *   new payload part     : a, b, 1, 2, c
+ *   new payload length   : 5
+ * </pre>
+ *
  * <a href="https://leetcode.ca/2017-02-15-443-String-Compression/">String Compression: problem solution</a>
  */
 public class StringCompression implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    private static final char[] DEFAULT_CHARS = new char[]{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'c'};
+    public static final char[] DEFAULT_CHARS = new char[]{'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'c'};
 
     private final char[] originChars;
     private final char[] chars;
@@ -102,10 +112,5 @@ public class StringCompression implements Runnable {
             }
         }
         return first + 1; // new length
-    }
-
-    public static void main(String[] args) {
-        var compression = new StringCompression(DEFAULT_CHARS);
-        compression.run();
     }
 }
