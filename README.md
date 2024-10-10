@@ -57,7 +57,6 @@ Result. Parentheses is: valid
   * reverseLinkedList
   * middleOfLinkedList
   * validPalindrome
-  * oneEditDistance
   * validAnagram
   * wordPattern
   * validIpAddress
