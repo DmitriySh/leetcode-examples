@@ -13,6 +13,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [3  - Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters) (find the longest substring without repeating characters)
  * [20 - Valid Parentheses](https://leetcode.com/problems/valid-parentheses) (whether the string with parentheses is valid or not)
  * [26 - Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) (remove duplicates from sorted array)
+ * [56 - Merge Intervals](https://leetcode.com/problems/merge-intervals) (merging array intervals)
  * [66 - Plus One](https://leetcode.com/problems/plus-one) (increment the large integer by one)
  * [74 - Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix) (the number is in the matrix, true or false)
  * [125 - Valid Palindrome](https://leetcode.com/problems/valid-palindrome) (text is a palindrome, true or false)
@@ -66,3 +67,4 @@ Result. Parentheses is: valid
   * fibonacciNumber
   * stringCompression
   * longestSubstringWithoutRepeatingChars
+  * mergeIntervals
