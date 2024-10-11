@@ -20,7 +20,7 @@ public class MergeIntervalsTest {
 
         // when
         mergeIntervals.run();
-        int[][] resultIntervals = mergeIntervals.getResultIntervals();
+        int[][] resultIntervals = mergeIntervals.getMergedIntervals();
 
         // then
         assertThat(resultIntervals)
@@ -35,7 +35,7 @@ public class MergeIntervalsTest {
 
         // when
         mergeIntervals.run();
-        int[][] resultIntervals = mergeIntervals.getResultIntervals();
+        int[][] resultIntervals = mergeIntervals.getMergedIntervals();
 
         // then
         assertThat(resultIntervals)

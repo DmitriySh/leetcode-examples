@@ -30,14 +30,14 @@ public class MergeIntervals implements Runnable {
     public static final int[][] DEFAULT_ARRAY = new int[][]{{1, 3}, {2, 6}, {10, 18}, {8, 10}};
 
     private final int[][] intervals;
-    private int[][] resultIntervals;
+    private int[][] mergedIntervals;
 
     public MergeIntervals(int[][] intervals) {
         this.intervals = intervals;
     }
 
-    public int[][] getResultIntervals() {
-        return resultIntervals;
+    public int[][] getMergedIntervals() {
+        return mergedIntervals;
     }
 
     @Override
@@ -45,11 +45,11 @@ public class MergeIntervals implements Runnable {
         logger.info("Start merge intervals...");
         logger.info("Origin intervals: {}", Arrays.deepToString(intervals));
 
-        this.resultIntervals = merge(intervals);
-        logger.info("Result. {}", Arrays.deepToString(resultIntervals));
+        this.mergedIntervals = merge(intervals);
+        logger.info("Result. {}", Arrays.deepToString(mergedIntervals));
     }
 
-    public int[][] merge(int[][] intervals) {
+    private int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
 
         List<int[]> result = new ArrayList<>();
