@@ -16,6 +16,7 @@ import ru.shishmakov.problems.RemoveDuplicatesFromSortedArray;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.StringCompression;
+import ru.shishmakov.problems.Sqrt;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidIpAddress;
 import ru.shishmakov.problems.ValidPalindrome;
@@ -52,6 +53,7 @@ public class App {
             case "stringCompression" -> new StringCompression(StringCompression.DEFAULT_CHARS).run();
             case "longestSubstringWithoutRepeatingChars" -> new LongestSubstringWithoutRepeatingChars(LongestSubstringWithoutRepeatingChars.DEFAULT_STRING).run();
             case "mergeIntervals" -> new MergeIntervals(MergeIntervals.DEFAULT_ARRAY).run();
+            case "sqrt" -> new Sqrt(Sqrt.DEFAULT_VALUE).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
