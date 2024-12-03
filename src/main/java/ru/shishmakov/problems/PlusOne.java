@@ -8,10 +8,9 @@ import java.util.Arrays;
 
 /**
  * 66 - Plus One.
- * <p/>
+ * <p>
  * You are given a large integer represented as an integer array 'digits'. The 'digits' are ordered in left-to-right order.
  * The large integer does not contain any leading 0's. <b>Increment</b> the large integer <b>by one</b> and return the resulting array of digits.
- * <p/>
  *
  * <pre>
  * Example:

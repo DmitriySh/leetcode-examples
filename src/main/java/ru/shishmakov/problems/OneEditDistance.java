@@ -7,9 +7,9 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 161 - One Edit Distance.
- * <p/>
+ * <p>
  * Given two strings 'first' and 'second', determine if they are both one edit distance apart.
- * <p/>
+ * <p>
  * There are 3 possibilities to satisfy one edit distance apart:
  * <ul>
  *     <li>insert one character into 'first' to get 'second';</li>

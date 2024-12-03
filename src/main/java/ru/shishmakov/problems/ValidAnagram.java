@@ -7,10 +7,10 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 242 - Valid Anagram.
- * <p/>
+ * <p>
  * Given two strings `source` and `target`, return `true` if `target` is an anagram of `source`, and `false` otherwise.
  * `Source` and `target` strings consist of lowercase English letters.
- * <p/>
+ * <p>
  * Note: an <b>Anagram</b> is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
  *
  * <pre>

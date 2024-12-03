@@ -10,10 +10,11 @@ import java.util.List;
 
 /**
  * 191 - Number of 1 Bits.
- * <p/>
- * Given an unsigned integer 'n', return the number of '1' bits it has in binary representation
- * <pre>
+ * <p>
+ * Given an unsigned integer 'n', return the number of '1' bits it has in binary representation.<br/>
  * Explanation: shift the number by the desired quantity of bits to the right, multiply to the 1 with AND operator and sum up the values
+ *
+ * <pre>
  * Examples:
  *      0000 0000 is 8 bit (1 byte)
  * ------------------------

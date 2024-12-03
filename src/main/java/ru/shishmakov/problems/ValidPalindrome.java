@@ -7,7 +7,7 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 125 - Valid Palindrome.
- * <p/>
+ * <p>
  * Given a string `text`, return `true` if it is a palindrome, or `false` otherwise.
  * An input string is palindrome if:
  * <ul>

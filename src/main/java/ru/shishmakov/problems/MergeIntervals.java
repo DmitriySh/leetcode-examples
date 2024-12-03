@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * 56 - Merge Intervals.
- * <p/>
+ * <p>
  * Given an array of 'intervals' where intervals[i] = [a, b], merge all overlapping intervals,
  * and return an array of the non-overlapping intervals that cover all the intervals in the input.
  *

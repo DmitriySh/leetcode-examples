@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  * 290 - Word Pattern.
- * <p/>
+ * <p>
  * Given a `pattern` and a string `text`, find if `text` follows the same pattern.
  * Follow means a full match: each letter in `pattern` and a non-empty word in `text`.
  *

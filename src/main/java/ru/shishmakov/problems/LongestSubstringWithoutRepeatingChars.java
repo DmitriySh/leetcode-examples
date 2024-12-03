@@ -9,7 +9,7 @@ import java.util.Set;
 
 /**
  * 3 - Longest Substring Without Repeating Characters.
- * <p/>
+ * <p>
  * Given a string 'str', find the length of the <u>longest substring</u> without repeating characters.
  * A substring contains a contiguous non-empty sequence of characters within a string.
  * <p>

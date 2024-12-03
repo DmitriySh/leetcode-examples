@@ -7,14 +7,14 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 26 - Remove Duplicates from Sorted Array.
- * <p/>
+ * <p>
  * Given an integer array `nums` sorted in non-decreasing order. You need:
  * <ul>
  *     <li>remove the duplicates <u>in-place</u> such that each unique element appears only once</li>
  *     <li>the relative order of the elements should be kept the same</li>
  *     <li>return `payloadSize` - the number of unique elements in `nums`</li>
  * </ul>
- * <p/>
+ * <p>
  * Constraints:
  * <ul>
  *     <li>1 <= `nums`.length <= 3 * 104</li>

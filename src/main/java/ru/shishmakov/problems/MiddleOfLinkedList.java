@@ -10,9 +10,9 @@ import java.util.List;
 
 /**
  * 876 - Middle of the Linked List.
- * <p/>
+ * <p>
  * Given the 'head' of a singly linked list, return its middle node. If there are two middle nodes, return the second middle node.
- * <p/>
+ * <p>
  * Constraints:
  * <ul>
  *     <li>the number of nodes in the list is in the range [1..100]</li>

@@ -7,7 +7,7 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 468 - Validate IP Address.
- * <p/>
+ * <p>
  * Given a string queryIP and return:
  * <ul>
  *     <li>"IPv4" if IP is a valid IPv4 address;</li>

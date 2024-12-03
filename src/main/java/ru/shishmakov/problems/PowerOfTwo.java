@@ -7,11 +7,11 @@ import java.lang.invoke.MethodHandles;
 
 /**
  * 231 - Power of two.
- * <p/>
+ * <p>
  * Given an integer 'number', return 'true' if it is a power of two and 'false' otherwise.<br/>
  * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x).<br/>
  * Constraints: -231 <= 'number' <= 231 - 1
- * <p/>
+ *
  * <pre>
  * Examples:
  *      0000 0000 is 8 bit (1 byte)

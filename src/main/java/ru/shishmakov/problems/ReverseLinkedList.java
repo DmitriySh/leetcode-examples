@@ -9,8 +9,9 @@ import java.util.List;
 
 /**
  * 206 - Reverse Linked List.
- * <p/>
+ * <p>
  * Given the 'head' of a singly linked list, reverse the list and return it.
+ *
  * <pre>
  * Example:
  *   origin   : 1  ->  2  ->  3  ->  4 -> null
