@@ -7,6 +7,7 @@ import ru.shishmakov.problems.FibonacciNumber;
 import ru.shishmakov.problems.LongestSubstringWithoutRepeatingChars;
 import ru.shishmakov.problems.MergeIntervals;
 import ru.shishmakov.problems.MiddleOfLinkedList;
+import ru.shishmakov.problems.MoveZeroes;
 import ru.shishmakov.problems.NumberOfIslands;
 import ru.shishmakov.problems.NumberOfOneBits;
 import ru.shishmakov.problems.OneEditDistance;
@@ -15,8 +16,8 @@ import ru.shishmakov.problems.PowerOfTwo;
 import ru.shishmakov.problems.RemoveDuplicatesFromSortedArray;
 import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
-import ru.shishmakov.problems.StringCompression;
 import ru.shishmakov.problems.Sqrt;
+import ru.shishmakov.problems.StringCompression;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidIpAddress;
 import ru.shishmakov.problems.ValidPalindrome;
@@ -54,6 +55,7 @@ public class App {
             case "longestSubstringWithoutRepeatingChars" -> new LongestSubstringWithoutRepeatingChars(LongestSubstringWithoutRepeatingChars.DEFAULT_STRING).run();
             case "mergeIntervals" -> new MergeIntervals(MergeIntervals.DEFAULT_ARRAY).run();
             case "sqrt" -> new Sqrt(Sqrt.DEFAULT_VALUE).run();
+            case "moveZeroes" -> new MoveZeroes(MoveZeroes.DEFAULT_NUMS).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }

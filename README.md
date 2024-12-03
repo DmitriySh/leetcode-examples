@@ -24,6 +24,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [206 - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) (reverse the linked list)
  * [231 - Power of two](https://leetcode.com/problems/power-of-two) (number is a power of two or not)
  * [242 - Validate Anagram](https://leetcode.com/problems/valid-anagram) (text is a anagram, true or false)
+ * [283 - Move Zeroes](https://leetcode.com/problems/move-zeroes) (move all 0's to the end)
  * [290 - Word Pattern](https://leetcode.com/problems/word-pattern) (pattern and text follows the same behavior - full match)
  * [443 - String Compression](https://leetcode.com/problems/string-compression) (compress array of characters)
  * [468 - Validate IP Address](https://leetcode.com/problems/validate-ip-address) (string is a valid IPv4/IPv6 address or neither)
@@ -69,3 +70,4 @@ Result. Parentheses is: valid
   * longestSubstringWithoutRepeatingChars
   * mergeIntervals
   * sqrt
+  * moveZeroes
