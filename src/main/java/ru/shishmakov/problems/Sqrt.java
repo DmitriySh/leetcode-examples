@@ -49,7 +49,7 @@ public class Sqrt implements Runnable {
         logger.info("Source value = {}", number);
 
         squareRoot = mySqrt(number);
-        logger.info("sqrt(value) = {}", squareRoot);
+        logger.info("Result. Sqrt(value) = {}", squareRoot);
     }
 
     private int mySqrt(int sourceSquare) {
