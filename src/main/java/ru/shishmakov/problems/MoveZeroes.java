@@ -52,6 +52,23 @@ public class MoveZeroes implements Runnable {
         logger.info("Result array: {}", Arrays.toString(nums));
     }
 
+    /**
+     * To move zero elements to the right:
+     * <ul>
+     *     <li>cursorA = cursorB = 0 (start left position)</li>
+     *     <li>iterate cursorB to the right</li>
+     *     <li>if array[cursorB] != 0 => move values between cursorA and cursorB</li>
+     * </ul>
+     * <p>
+     * To move zero elements to the left:
+     * <ul>
+     *     <li>cursorA = cursorB = (array.length - 1) (end right position)</li>
+     *     <li>iterate cursorB to the left</li>
+     *     <li>if array[cursorB] != 0 => move values between cursorA and cursorB</li>
+     * </ul>
+     *
+     * @param nums - source integer array
+     */
     private void moveZeroes(int[] nums) {
         int a = 0;
         for (int b = 0; b < nums.length; b++) {
