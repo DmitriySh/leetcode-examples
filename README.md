@@ -15,6 +15,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [26 - Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) (remove duplicates from sorted array)
  * [56 - Merge Intervals](https://leetcode.com/problems/merge-intervals) (merging array intervals)
  * [66 - Plus One](https://leetcode.com/problems/plus-one) (increment the large integer by one)
+ * [69 - Sqrt(x)](https://leetcode.com/problems/sqrtx) (returns the square root of a number)
  * [74 - Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix) (the number is in the matrix, true or false)
  * [125 - Valid Palindrome](https://leetcode.com/problems/valid-palindrome) (text is a palindrome, true or false)
  * [161 - One Edit Distance](https://leetcode.com/problems/one-edit-distance) (two strings differ from each other by one character, true or false)
@@ -67,3 +68,4 @@ Result. Parentheses is: valid
   * stringCompression
   * longestSubstringWithoutRepeatingChars
   * mergeIntervals
+  * sqrt
