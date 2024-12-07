@@ -20,6 +20,7 @@ import ru.shishmakov.problems.Sqrt;
 import ru.shishmakov.problems.StringCompression;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidIpAddress;
+import ru.shishmakov.problems.ValidMountainArray;
 import ru.shishmakov.problems.ValidPalindrome;
 import ru.shishmakov.problems.ValidParentheses;
 import ru.shishmakov.problems.WordPattern;
@@ -56,6 +57,7 @@ public class App {
             case "mergeIntervals" -> new MergeIntervals(MergeIntervals.DEFAULT_ARRAY).run();
             case "sqrt" -> new Sqrt(Sqrt.DEFAULT_VALUE).run();
             case "moveZeroes" -> new MoveZeroes(MoveZeroes.DEFAULT_NUMS).run();
+            case "validMountainArray" -> new ValidMountainArray(ValidMountainArray.DEFAULT_ARRAY).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }

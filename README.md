@@ -30,6 +30,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [468 - Validate IP Address](https://leetcode.com/problems/validate-ip-address) (string is a valid IPv4/IPv6 address or neither)
  * [509 - Fibonacci Number](https://leetcode.com/problems/fibonacci-number) (each number is the sum of the two preceding ones)
  * [876 - Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list) (find middle of the linked list)
+ * [941 - Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array/description/) (valid mountain array, true or false)
 
 
 ## Run:
@@ -71,3 +72,4 @@ Result. Parentheses is: valid
   * mergeIntervals
   * sqrt
   * moveZeroes
+  * validMountainArray
