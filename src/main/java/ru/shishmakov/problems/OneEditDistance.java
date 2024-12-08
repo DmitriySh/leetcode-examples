@@ -69,8 +69,6 @@ public class OneEditDistance implements Runnable {
             return false;
         }
 
-        // abcd
-        // abxcd
         int minLength = Math.min(fLength, sLength);
         int position = 0;
         while (position < minLength) {
@@ -79,19 +77,25 @@ public class OneEditDistance implements Runnable {
             if (fChar != sChar) {
                 logger.info("'{}' and '{}' = not ok", fChar, sChar);
                 if (fLength == sLength) {
-                    // replace 1 char?
+                    // replace 1 char in first and second?
+                    // abfcd
+                    // abxcd
                     return equalStr(first.substring(position + 1), second.substring(position + 1));
                 } else if (fLength > sLength) {
-                    // delete 1 char?
+                    // delete 1 char in first?
+                    // abfcd
+                    // abcd
                     return equalStr(first.substring(position + 1), second.substring(position));
                 } else {
-                    // insert 1 char?
+                    // insert 1 char first?
+                    // abcd
+                    // abxcd
                     return equalStr(first.substring(position), second.substring(position + 1));
                 }
             } else {
                 logger.info("'{}' and '{}' = ok", fChar, sChar);
+                position++;
             }
-            position++;
         }
         return Math.abs(fLength - sLength) == 1;
     }
