@@ -10,7 +10,7 @@ import java.lang.invoke.MethodHandles;
  * <p>
  * Given an integer 'number', return 'true' if it is a power of two and 'false' otherwise.<br/>
  * Explanation: if binary notation of number has single value '1' then source number is a power of two (n == 2^x).<br/>
- * Constraints: -231 <= 'number' <= 231 - 1
+ * Constraints: -2^31 <= 'number' <= 2^31 - 1
  *
  * <pre>
  * Examples:

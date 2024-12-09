@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class PowerOfTwoTest {
 
     @ParameterizedTest(name = "number {0} = false")
-    @ValueSource(ints = {-4, -1, 0, 3, 5, 7, 100, 101, 120, 777})
+    @ValueSource(ints = {-231, -4, -1, 0, 3, 5, 7, 100, 101, 120, 777})
     void numbersIsNotPowerOfTwo(int number) {
         // given
         var power = new PowerOfTwo(number);
