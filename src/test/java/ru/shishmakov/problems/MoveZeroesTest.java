@@ -26,7 +26,7 @@ public class MoveZeroesTest {
     }
 
     @ParameterizedTest(name = "source=[{0}], target=[{1}]")
-    @CsvSource(value = {"0,0", "10,10", "002,200", "0030,3000", "040050,450000"})
+    @CsvSource(value = {"0,0", "10,10", "002,200", "0030,3000", "040050,450000", "1234,1234"})
     void shouldMoveZeroRight(String source, String expected) {
         // given
         int[] sourceNums = source.chars().mapToObj(Character::toString).mapToInt(Integer::parseInt).toArray();
