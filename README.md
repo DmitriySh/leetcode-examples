@@ -26,6 +26,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [242 - Validate Anagram](https://leetcode.com/problems/valid-anagram) (text is a anagram, true or false)
  * [283 - Move Zeroes](https://leetcode.com/problems/move-zeroes) (move all 0's to the end)
  * [290 - Word Pattern](https://leetcode.com/problems/word-pattern) (pattern and text follows the same behavior - full match)
+ * [412 - Fizz Buzz](https://leetcode.com/problems/fizz-buzz) (replace integers to Fizz Buzz words)
  * [443 - String Compression](https://leetcode.com/problems/string-compression) (compress array of characters)
  * [468 - Validate IP Address](https://leetcode.com/problems/validate-ip-address) (string is a valid IPv4/IPv6 address or neither)
  * [509 - Fibonacci Number](https://leetcode.com/problems/fibonacci-number) (each number is the sum of the two preceding ones)
@@ -73,3 +74,4 @@ Result. Parentheses is: valid
   * sqrt
   * moveZeroes
   * validMountainArray
+  * fizzBuzz

@@ -4,6 +4,7 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.FibonacciNumber;
+import ru.shishmakov.problems.FizzBuzz;
 import ru.shishmakov.problems.LongestSubstringWithoutRepeatingChars;
 import ru.shishmakov.problems.MergeIntervals;
 import ru.shishmakov.problems.MiddleOfLinkedList;
@@ -41,15 +42,11 @@ public class App {
             case "reverseLinkedList" -> new ReverseLinkedList(ReverseLinkedList.DEFAULT_LIST_NODE).run();
             case "middleOfLinkedList" -> new MiddleOfLinkedList(MiddleOfLinkedList.DEFAULT_LIST_NODE).run();
             case "validPalindrome" -> new ValidPalindrome(ValidPalindrome.DEFAULT_TEXT).run();
-            case "validAnagram" -> new ValidAnagram(
-                    ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT
-            ).run();
+            case "validAnagram" -> new ValidAnagram(ValidAnagram.DEFAULT_SOURCE_TEXT, ValidAnagram.DEFAULT_TARGET_TEXT).run();
             case "wordPattern" -> new WordPattern(WordPattern.DEFAULT_PATTERN, WordPattern.DEFAULT_TEXT).run();
             case "validIpAddress" -> new ValidIpAddress(ValidIpAddress.DEFAULT_IP_ADDRESS).run();
             case "plusOne" -> new PlusOne(PlusOne.DEFAULT_DIGITS).run();
-            case "removeDuplicatesFromSortedArray" -> new RemoveDuplicatesFromSortedArray(
-                    RemoveDuplicatesFromSortedArray.DEFAULT_ARRAY
-            ).run();
+            case "removeDuplicatesFromSortedArray" -> new RemoveDuplicatesFromSortedArray(RemoveDuplicatesFromSortedArray.DEFAULT_ARRAY).run();
             case "oneEditDistance" -> new OneEditDistance(OneEditDistance.FIRST, OneEditDistance.SECOND).run();
             case "fibonacciNumber" -> new FibonacciNumber(FibonacciNumber.DEFAULT_NUMBER).run();
             case "stringCompression" -> new StringCompression(StringCompression.DEFAULT_CHARS).run();
@@ -58,6 +55,7 @@ public class App {
             case "sqrt" -> new Sqrt(Sqrt.DEFAULT_VALUE).run();
             case "moveZeroes" -> new MoveZeroes(MoveZeroes.DEFAULT_NUMS).run();
             case "validMountainArray" -> new ValidMountainArray(ValidMountainArray.DEFAULT_ARRAY).run();
+            case "fizzBuzz" -> new FizzBuzz(FizzBuzz.DEFAULT_NUMBER).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
