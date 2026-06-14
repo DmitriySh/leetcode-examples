@@ -42,7 +42,10 @@ public class VerticalSymmetryLine implements Runnable {
             new Point(13, 6),
             // x=16 - vertical line
             new Point(19, 6),
+            // asymmetrical
             new Point(20, 1), new Point(20, 3), new Point(20, 4),
+            // symmetrical
+//            new Point(20, 3), new Point(20, 4),
             new Point(24, 2), new Point(24, 4),
 
     };
@@ -75,6 +78,7 @@ public class VerticalSymmetryLine implements Runnable {
         // accumulate all points by X into HashMap
         for (int i = 0; i < points.length; i++) {
             Point point = points[i];
+            // start cartesian coordinate
             if (i == 0) {
                 minX = point.x;
                 maxX = point.x;
