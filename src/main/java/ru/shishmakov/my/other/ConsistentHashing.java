@@ -3,7 +3,9 @@ package ru.shishmakov.my.other;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -59,6 +61,13 @@ public class ConsistentHashing {
             var vNodeHash = hash(vNodeName);
             circle.remove(vNodeHash);
         }
+    }
+
+    /**
+     * @return список имён физических серверов участвующих в распределении на хеш‑кольце
+     */
+    public Set<String> getNodeNames() {
+        return new HashSet<>(circle.values());
     }
 
     /**
@@ -123,23 +132,30 @@ public class ConsistentHashing {
 
         ConsistentHashing ch = new ConsistentHashing(vNodes, nodes);
 
-        System.out.println("Физические узлы: " + nodes);
+        System.out.println("Физические узлы: " + ch.getNodeNames());
         System.out.println("Количество виртуальных узлов на 1 физический: " + vNodes);
-        System.out.println("Общее количество точек на кольце: " + ch.circle.size());
+        System.out.println("Общее количество виртуальных узлов на кольце: " + ch.circle.size());
+        System.out.println();
+
+        System.out.println("=== РАСПРЕДЕЛЕНИЕ ВСЕХ УЗЛОВ НА КОЛЬЦЕ ===");
         ch.circle.entrySet().forEach(System.out::println);
         System.out.println();
 
-        System.out.println("=== РАСПРЕДЕЛЕНИЕ КЛЮЧЕЙ ДО УДАЛЕНИЯ УЗЛА ===");
+        System.out.println("=== ПРИВЯЗКА КЛЮЧЕЙ К СЕРВЕРАМ НА КОЛЬЦЕ ===");
         printItemNodes(testItems, ch);
 
         String removeNode = "node-B";
         ch.removeNode(removeNode);
         System.out.println("Удаление физического узла: " + removeNode);
-        System.out.println("Общее количество точек на кольце: " + ch.circle.size());
+        System.out.println("Физические узлы: " + ch.getNodeNames());
+        System.out.println("Общее количество виртуальных узлов на кольце: " + ch.circle.size());
+        System.out.println();
+
+        System.out.println("=== РАСПРЕДЕЛЕНИЕ ВСЕХ УЗЛОВ НА КОЛЬЦЕ ПОСЛЕ УДАЛЕНИЯ УЗЛА ===");
         ch.circle.entrySet().forEach(System.out::println);
         System.out.println();
 
-        System.out.println("=== РАСПРЕДЕЛЕНИЕ КЛЮЧЕЙ ПОСЛЕ УДАЛЕНИЯ УЗЛА ===");
+        System.out.println("=== ПРИВЯЗКА КЛЮЧЕЙ К СЕРВЕРАМ НА КОЛЬЦЕ ПОСЛЕ УДАЛЕНИЯ УЗЛА ===");
         printItemNodes(testItems, ch);
     }
 
