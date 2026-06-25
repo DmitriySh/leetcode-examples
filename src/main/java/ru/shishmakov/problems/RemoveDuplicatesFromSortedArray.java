@@ -61,18 +61,8 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
     }
 
     private int removeDuplicates(int[] nums) {
-        if (nums.length == 1) {
-            return 1;
-        }
-
-        int left = 0;
-        int right = 1;
-        while (right < nums.length) {
-            if (nums[left] != nums[right]) {
-                left++;
-                nums[left] = nums[right];
-            }
-            right++;
+        if (nums.length < 2) {
+            return nums.length;
         }
 
         return left + 1; // count with zero element
