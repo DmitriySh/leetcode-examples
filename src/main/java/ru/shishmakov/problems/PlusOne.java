@@ -1,10 +1,9 @@
 package ru.shishmakov.problems;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 66 - Plus One.
@@ -50,13 +49,15 @@ public class PlusOne implements Runnable {
         while (index >= 0) {
             digits[index]++;
             digits[index] %= 10;
+            // [8,9] +1 = [9,0]
+            // [9,9] +1 = [0,0]
             if (digits[index] != 0) {
                 return digits;
             }
             index--;
         }
 
-        // [9,9] -> [1,0,0]
+        // [0,0] => [1,0,0]
         digits = new int[digits.length + 1];
         digits[0] = 1;
         return digits;
