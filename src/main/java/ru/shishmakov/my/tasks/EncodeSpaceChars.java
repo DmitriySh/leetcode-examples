@@ -55,7 +55,7 @@ public class EncodeSpaceChars implements Runnable {
         for (int i = 0; i < payloadLength - 1; i++) {
             if (array[i] == ' ') spaceCount++;
         }
-        int newPayloadLength = payloadLength + spaceCount * 2;
+        final int newPayloadLength = payloadLength + spaceCount * 2;
 
         for (int i = payloadLength - 1; i >= 0; i--) {
             if (spaceCount == 0) {
