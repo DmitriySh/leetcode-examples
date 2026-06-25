@@ -50,6 +50,10 @@ public class MergeIntervals implements Runnable {
     }
 
     private int[][] merge(int[][] intervals) {
+        if (intervals.length < 2) {
+            return intervals;
+        }
+
         Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
 
         List<int[]> result = new ArrayList<>();
