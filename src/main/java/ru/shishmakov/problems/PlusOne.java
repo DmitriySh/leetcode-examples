@@ -49,6 +49,9 @@ public class PlusOne implements Runnable {
         while (index >= 0) {
             digits[index]++;
             digits[index] %= 10;
+            // 1%10 = 1
+            // 9%10 = 9
+            // 10%10 = 0
             // [8,9] +1 = [9,0]
             // [9,9] +1 = [0,0]
             if (digits[index] != 0) {
