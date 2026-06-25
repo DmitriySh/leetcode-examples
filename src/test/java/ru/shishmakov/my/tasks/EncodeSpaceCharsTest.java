@@ -43,8 +43,12 @@ class EncodeSpaceCharsTest {
 
     @ParameterizedTest(name = "source={0}, length={1} to target={2}, newLength={3}")
     @CsvSource(value = {
-            "'',0,'',0", "a,1,a,1",
-            "a bcd,3,a%20b,5",
+            "'',0,'',0",
+            "a,1,a,1",
+            "abc,1,abc,1",
+            "abc,3,abc,3",
+            "abc d!,3,abc d!,3",
+            "a bcd!,3,a%20b!,5",
             "a bcdef,3,a%20bef,5",
             "' a bcdef',4,%20a%20b,8",
             "'  abcdef',4,%20%20ab,8",
