@@ -49,15 +49,15 @@ public class EncodeSpaceChars implements Runnable {
         logger.info("Result char array: {}, new payload length: {}", Arrays.toString(chars), newPayloadLength);
     }
 
-    private int encodeSpaces(char[] array, int length) {
+    private int encodeSpaces(char[] array, int payloadLength) {
         int spaceCount = 0;
         char[] spaceChars = new char[]{'%', '2', '0'};
-        for (int i = 0; i < length - 1; i++) {
+        for (int i = 0; i < payloadLength - 1; i++) {
             if (array[i] == ' ') spaceCount++;
         }
-        int result = length + spaceCount * 2;
+        int newPayloadLength = payloadLength + spaceCount * 2;
 
-        for (int i = length - 1; i >= 0; i--) {
+        for (int i = payloadLength - 1; i >= 0; i--) {
             if (spaceCount == 0) {
                 break;
             }
@@ -66,12 +66,16 @@ public class EncodeSpaceChars implements Runnable {
                 array[i + spaceCount * 2] = array[i];
             } else {
                 spaceCount--;
+                // spaceChars = ['%', '2', '0']
+                // j          =   0    1    2
+                // array      = [' ', 'o', 'n', '1', 'R', ...]
+                //              [' ', 'o', '%', '2', '0', ...]
                 for (int j = 0; j < spaceChars.length; j++) {
                     array[i + j + 2 * spaceCount] = spaceChars[j];
                 }
             }
         }
-        return result;
+        return newPayloadLength;
     }
 
     public static void main(String[] args) {
