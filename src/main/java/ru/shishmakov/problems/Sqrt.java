@@ -57,6 +57,8 @@ public class Sqrt implements Runnable {
         int right = sourceSquare;
 
         while (left < right) {
+            // 5/2 = 2
+            // 1/2 = 0
             int mid = (left + right + 1) / 2; // 4 >>> 1 = 2
             logger.info("Middle = {}, [{}..{}]", mid, left, right);
             if (mid > sourceSquare / mid) {
