@@ -51,23 +51,23 @@ public class FibonacciNumber implements Runnable {
         logger.info("Result. Calculated fibonacci number: {} by the index {}", fibNumber, indexNumber);
     }
 
-    private int fib1(int n) {
-        if (n == 0) {
+    private int fib1(int number) {
+        if (number == 0) {
             return 0;
-        } else if (n == 1) {
+        } else if (number == 1) {
             return 1;
         }
-        return fib1(n - 1) + fib1(n - 2);
+        return fib1(number - 1) + fib1(number - 2);
     }
 
-    private int fib2(int n) {
+    private int fib2(int number) {
         int a = 0, b = 1;
-        while (n > 0) {
+        while (number > 0) {
             int c = a + b; // 1=0+1 ; 2=1+1 ; 3=2+1
             logger.info("fib({}) = fib({}) + fib({})", c, a, b);
             a = b;
             b = c;
-            n--;
+            number--;
         }
         return a;
     }
