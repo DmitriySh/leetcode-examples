@@ -68,8 +68,8 @@ public class EncodeSpaceChars implements Runnable {
                 spaceCount--;
                 // spaceChars = ['%', '2', '0']
                 // j          =   0    1    2
-                // array      = [' ', 'o', 'n', '1', 'R', ...]
-                //              [' ', 'o', '%', '2', '0', ...]
+                // array before = [' ', 'o', 'n', '1', 'R', ...]
+                // array after  = ['%', '2', '0', '1', 'R', ...]
                 for (int j = 0; j < spaceChars.length; j++) {
                     array[i + j + 2 * spaceCount] = spaceChars[j];
                 }
