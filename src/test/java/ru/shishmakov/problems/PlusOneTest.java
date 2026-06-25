@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class PlusOneTest {
 
     @ParameterizedTest(name = "source [{0}] target[{1}]")
-    @CsvSource({"99,100", "123,124", "239,240"})
+    @CsvSource({"'',1", "0,1", "1,2", "99,100", "123,124", "239,240"})
     void shouldIncrementIntegerArray(String source, String target) {
         // given
         int[] sourceDigits = source.chars().mapToObj(Character::toString).mapToInt(Integer::parseInt).toArray();
