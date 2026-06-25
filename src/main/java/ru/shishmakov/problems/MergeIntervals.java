@@ -56,18 +56,18 @@ public class MergeIntervals implements Runnable {
         result.add(intervals[0]);
 
         for (int i = 1; i < intervals.length; i++) {
-            int[] prev = result.get(result.size() - 1);
-            int[] curr = intervals[i];
+            int[] prevInterval = result.get(result.size() - 1);
+            int[] nextInterval = intervals[i];
 
-            //  a1 b1   a2 b2
+            //  f1 l1   f2 l2
             // {0, 4}, {1, 4}
-            int b1 = prev[1];
-            int a2 = curr[0];
-            int b2 = curr[1];
-            if (a2 > b1) {
-                result.add(curr);
+            int last1 = prevInterval[1];
+            int first2 = nextInterval[0];
+            int last2 = nextInterval[1];
+            if (first2 > last1) {
+                result.add(nextInterval);
             } else {
-                prev[1] = Math.max(b1, b2);
+                prevInterval[1] = Math.max(last1, last2);
             }
         }
         return result.toArray(new int[0][0]);
