@@ -45,7 +45,9 @@ class EncodeSpaceCharsTest {
     @CsvSource(value = {
             "'',0,'',0", "a,1,a,1",
             "a bcd,3,a%20b,5",
-            "a bcdef,3,a%20bef,5"
+            "a bcdef,3,a%20bef,5",
+            "' a bcdef',4,%20a%20b,8",
+            "'  abcdef',4,%20%20ab,8",
     })
     void encodeShouldReplaceSpacesAndSetNewPayloadLengthSuccessfully(
             String source, int sourcePayloadLength,
