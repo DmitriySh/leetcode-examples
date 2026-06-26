@@ -1,9 +1,8 @@
 package ru.shishmakov.problems;
 
+import java.lang.invoke.MethodHandles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.invoke.MethodHandles;
 
 /**
  * 161 - One Edit Distance.
@@ -23,8 +22,11 @@ import java.lang.invoke.MethodHandles;
  *   "ab"  |  "b"    = true
  *   "ab"  | "cb"    = true
  *   "abcd"|"abxcd"  = true
- *   " "   |  ""     = true
+ *   ""    |  "a"    = true
+ *   ""    |  " "    = true
  *   ""    |  ""     = false
+ *   "ab"  | ""      = false
+ *   "ab"  | "ab"    = false
  *   "ab"  | "ba"    = false
  *   "ab"  | "abcd"  = false
  *
@@ -70,38 +72,45 @@ public class OneEditDistance implements Runnable {
         }
 
         int minLength = Math.min(fLength, sLength);
-        int position = 0;
-        while (position < minLength) {
-            char fChar = first.charAt(position);
-            char sChar = second.charAt(position);
-            if (fChar != sChar) {
-                logger.info("'{}' and '{}' = not ok", fChar, sChar);
-                if (fLength == sLength) {
-                    // replace 1 char in first and second?
-                    // abfcd
-                    // abxcd
-                    return equalStr(first.substring(position + 1), second.substring(position + 1));
-                } else if (fLength > sLength) {
-                    // delete 1 char in first?
-                    // abfcd
-                    // abcd
-                    return equalStr(first.substring(position + 1), second.substring(position));
-                } else {
-                    // insert 1 char first?
-                    // abcd
-                    // abxcd
-                    return equalStr(first.substring(position), second.substring(position + 1));
-                }
-            } else {
-                logger.info("'{}' and '{}' = ok", fChar, sChar);
-                position++;
+        int index = 0;
+        while (index < minLength) {
+            char firstChar = first.charAt(index);
+            char secondChar = second.charAt(index);
+
+            if (firstChar == secondChar) {
+                logger.info("first['{}'] == second['{}']", firstChar, secondChar);
+                index++;
+                continue;
+            }
+
+            logger.info("first['{}'] != second['{}']", firstChar, secondChar);
+            // replace 1 char in first and second?
+            if (fLength == sLength) {
+                // ab[f]cd => cd
+                // ab[x]cd => cd
+                return equalString(first.substring(index + 1), second.substring(index + 1));
+            }
+            // delete 1 char in first?
+            else if (fLength > sLength) {
+                // ab[f]cd => cd
+                // abcd    => cd
+                return equalString(first.substring(index + 1), second.substring(index));
+            }
+            // insert 1 char first?
+            else {
+                // abcd  => cd
+                // ab[x]cd => cd
+                return equalString(first.substring(index), second.substring(index + 1));
             }
         }
+
+        // 'abcd' and 'abcd' = false (no one edit)
+        // 'abcd' and 'abc' = true   (has one edit)
         return Math.abs(fLength - sLength) == 1;
     }
 
-    private boolean equalStr(String a, String b) {
-        logger.info("End parts: {} and {}", a, b);
-        return a.equals(b);
+    private boolean equalString(String first, String second) {
+        logger.info("End parts: {} and {}", first, second);
+        return first.equals(second);
     }
 }

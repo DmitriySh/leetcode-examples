@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OneEditDistanceTest {
 
     @ParameterizedTest(name = "first [{0}], second [{1}] = true")
-    @CsvSource(value = {"a,b", "ab,b", "ab,cb", "abcd,abxcd"})
+    @CsvSource(value = {"'',' '", "'',a", "a,b", "ab,b", "ab,cb", "abcd,abxcd"})
     void stringsTrueIfOneEdit(String first, String second) {
         // given
         var oneEditDistance = new OneEditDistance(first, second);
@@ -23,7 +23,7 @@ public class OneEditDistanceTest {
     }
 
     @ParameterizedTest(name = "first [{0}], second [{1}] = false")
-    @CsvSource(value = {"ab,ba", "ab,ab", "ab,abcd"})
+    @CsvSource(value = {"'','  '", "'',ab", "ab,ba", "ab,ab", "ab,abcd"})
     void stringsFalseIfNoOneEdit(String first, String second) {
         // given
         var oneEditDistance = new OneEditDistance(first, second);
