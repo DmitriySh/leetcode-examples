@@ -31,32 +31,32 @@ public class LreCompression implements Runnable {
 
     private String lreCompress(String source) {
         if (source == null || source.isEmpty()) {
-            throw new IllegalArgumentException("Source string is invalid: '" + srcValue + "'");
+            return source;
         }
 
         // accumulate info about string chars
-        char prevChar = 0;
+        char previousChar = 0;
         int counter = 0;
         var strBuilder = new StringBuilder();
         for (int i = 0; i < srcValue.length(); i++) {
-            char lastChar = source.charAt(i);
+            char currentChar = source.charAt(i);
             if (i == 0) {
-                prevChar = lastChar;
+                previousChar = currentChar;
                 counter = 1;
             } else {
-                if (lastChar == prevChar) {
+                if (currentChar == previousChar) {
                     counter++;
                 } else {
-                    strBuilder.append(prevChar);
+                    strBuilder.append(previousChar);
                     if (counter > 1) strBuilder.append(counter);
-                    prevChar = lastChar;
+                    previousChar = currentChar;
                     counter = 1;
                 }
             }
         }
         // add info about last char
-        if (prevChar != 0) {
-            strBuilder.append(prevChar);
+        if (previousChar != 0) {
+            strBuilder.append(previousChar);
             if (counter > 1) strBuilder.append(counter);
         }
         return strBuilder.toString();

@@ -31,7 +31,7 @@ public class LreDeCompression implements Runnable {
 
     private String lreDecompress(String source) {
         if (source == null || source.isEmpty()) {
-            throw new IllegalArgumentException("Source string is invalid: '" + srcValue + "'");
+            return source;
         }
 
         var strBuilder = new StringBuilder();
