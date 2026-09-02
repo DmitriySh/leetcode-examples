@@ -54,7 +54,7 @@ public class MaximumProductTwoElementsArray implements Runnable {
         logger.info("Start finding the maximum product value in the array: {}", array);
 
         this.product = findMaximumProduct(array);
-        logger.info("Result. Maximum product value: {} from array", this.product);
+        logger.info("Result. Maximum product value (nums[i] - 1) * (nums[j] - 1): {} from array", this.product);
     }
 
     private static int findMaximumProduct(int[] array) {
