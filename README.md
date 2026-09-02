@@ -76,3 +76,5 @@ Result. Parentheses is: valid
   * moveZeroes
   * validMountainArray
   * fizzBuzz
+  * maximumProductOfTwoElements
+  

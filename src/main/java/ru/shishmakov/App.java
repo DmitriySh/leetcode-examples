@@ -6,6 +6,7 @@ package ru.shishmakov;
 import ru.shishmakov.problems.FibonacciNumber;
 import ru.shishmakov.problems.FizzBuzz;
 import ru.shishmakov.problems.LongestSubstringWithoutRepeatingChars;
+import ru.shishmakov.problems.MaximumProductTwoElementsArray;
 import ru.shishmakov.problems.MergeIntervals;
 import ru.shishmakov.problems.MiddleOfLinkedList;
 import ru.shishmakov.problems.MoveZeroes;
@@ -56,6 +57,7 @@ public class App {
             case "moveZeroes" -> new MoveZeroes(MoveZeroes.DEFAULT_NUMS).run();
             case "validMountainArray" -> new ValidMountainArray(ValidMountainArray.DEFAULT_ARRAY).run();
             case "fizzBuzz" -> new FizzBuzz(FizzBuzz.DEFAULT_NUMBER).run();
+            case "maximumProductOfTwoElements" -> new MaximumProductTwoElementsArray(MaximumProductTwoElementsArray.DEFAULT_ARRAY).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
