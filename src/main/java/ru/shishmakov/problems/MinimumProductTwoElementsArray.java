@@ -112,7 +112,7 @@ public class MinimumProductTwoElementsArray implements Runnable {
 
     public int findMinProduct2(int[] array) {
         if (array.length < 2) {
-            throw new RuntimeException("Array length is not enough");
+            throw new IllegalArgumentException("Array length is not enough");
         }
 
         // 4, 0, 2, 1, 3, -1  ->>  -1, 0, 1, 2, 3, 4
