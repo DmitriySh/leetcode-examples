@@ -109,6 +109,6 @@ public class StringCompression implements Runnable {
                 }
             }
         }
-        return firstIndex + 1; // new length
+        return firstIndex + 1; // length with zero element
     }
 }
