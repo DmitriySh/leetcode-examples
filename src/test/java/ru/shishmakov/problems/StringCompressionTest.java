@@ -24,14 +24,14 @@ public class StringCompressionTest {
         stringCompression.run();
         char[] originChars = stringCompression.getOriginChars();
         char[] chars = stringCompression.getChars();
-        int newCharsLength = stringCompression.getNewLength();
+        int payloadLength = stringCompression.getPayloadLength();
 
         // then
         assertThat(originChars)
                 .isNotEqualTo(chars);
         assertThat(chars)
                 .isEqualTo(expectedChars);
-        assertThat(newCharsLength)
+        assertThat(payloadLength)
                 .isEqualTo(expectedPayloadLength);
     }
 
@@ -44,12 +44,12 @@ public class StringCompressionTest {
         // when
         stringCompression.run();
         char[] chars = stringCompression.getChars();
-        int newCharsLength = stringCompression.getNewLength();
+        int payloadLength = stringCompression.getPayloadLength();
 
         // then
         assertThat(chars)
                 .isEqualTo(expectedChars);
-        assertThat(newCharsLength)
+        assertThat(payloadLength)
                 .isEqualTo(expectedPayloadLength);
     }
 
@@ -61,7 +61,8 @@ public class StringCompressionTest {
                 arguments(new char[]{'a', 'b', 'b', 'b'}, new char[]{'a', 'b', '3', 'b'}, 3),
                 arguments(new char[]{'a', 'a', 'b', 'b'}, new char[]{'a', '2', 'b', '2'}, 4),
                 arguments(new char[]{'a', 'a', 'a', 'a'}, new char[]{'a', '4', 'a', 'a'}, 2),
-                arguments(new char[]{'7', '7', '7', '8'}, new char[]{'7', '3', '8', '8'}, 3)
+                arguments(new char[]{'7', '7', '7', '8'}, new char[]{'7', '3', '8', '8'}, 3),
+                arguments(new char[]{'7', '7', '7', '7', '7', '8'}, new char[]{'7', '5', '8', '7', '7', '8'}, 3)
         );
     }
 }

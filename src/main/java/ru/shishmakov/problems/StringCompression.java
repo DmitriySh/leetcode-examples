@@ -39,7 +39,7 @@ public class StringCompression implements Runnable {
 
     private final char[] originChars;
     private final char[] chars;
-    private int newLength;
+    private int payloadLength;
 
     public StringCompression(char[] chars) {
         this.originChars = chars.clone();
@@ -54,17 +54,18 @@ public class StringCompression implements Runnable {
         return chars;
     }
 
-    public int getNewLength() {
-        return newLength;
+    public int getPayloadLength() {
+        return payloadLength;
     }
 
     @Override
     public void run() {
         logger.info("Start string compression...");
-        logger.info("Array of characters before: {}", Arrays.toString(chars));
+        logger.info("Array of characters before: {}", chars);
 
-        this.newLength = compress(chars);
-        logger.info("Array of characters after: {}, new length: {}", Arrays.toString(chars), this.newLength);
+        this.payloadLength = compress(chars);
+        logger.info("Array of characters after: {}", chars);
+        logger.info("Payload: {} length: {}", Arrays.copyOf(chars, payloadLength), payloadLength);
     }
 
     public int compress(char[] chars) {
