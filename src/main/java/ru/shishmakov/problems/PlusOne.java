@@ -9,13 +9,20 @@ import org.slf4j.LoggerFactory;
  * 66 - Plus One.
  * <p>
  * You are given a large integer represented as an integer array 'digits'. The 'digits' are ordered in left-to-right order.
- * The large integer does not contain any leading 0's. <b>Increment</b> the large integer <b>by one</b> and return the resulting array of digits.
+ * <b>Increment</b> the large integer <b>by one</b> and return the resulting array of digits.
+ * <p/>
+ * Note: the large integer does not contain any leading 0's.
  *
  * <pre>
  * Example:
- *   origin digits   : [9, 9] + 1
- *   expected array  : [1, 0, 0]
+ *     origin digits   : [9, 8] + 1
+ *     expected array  : [9, 9]
  *
+ *     origin digits   : [8, 9] + 1
+ *     expected array  : [9, 0]
+ *
+ *     origin digits   : [9, 9] + 1
+ *     expected array  : [1, 0, 0]
  * </pre>
  *
  * <a href="https://leetcode.ca/2016-02-04-66-Plus-One/">Plus One: problem solution</a>
@@ -46,6 +53,8 @@ public class PlusOne implements Runnable {
     private int[] plusOne(int[] digits) {
         int index = digits.length - 1;
 
+        // [9, 5, 8]
+        //   <--  index: to left
         while (index >= 0) {
             digits[index]++;
             digits[index] %= 10;
