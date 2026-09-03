@@ -24,11 +24,11 @@ import java.util.Arrays;
  *
  * <pre>
  * Example:
- *   source chars         : a, b, b, b, b, b, b, b, b, b, b, b, b, c
+ *   source chars         : [a, b, b, b, b, b, b, b, b, b, b, b, b, c]
  *   chars length         : 14
  *
- *   compressed chars     : a, b, 1, 2, c, b, b, b, b, b, b, b, b, c
- *   new payload part     : a, b, 1, 2, c
+ *   compressed chars     : [a, b, 1, 2, c, b, b, b, b, b, b, b, b, c]
+ *   new payload part     : [a, b, 1, 2, c]
  *   new payload length   : 5
  * </pre>
  *
@@ -69,48 +69,47 @@ public class StringCompression implements Runnable {
     }
 
     public int compress(char[] chars) {
-        int first = 0, second = 1;
-        char prevChar = 0;
-        int counter = 0;
+        if(chars.length == 0) {
+            return 0;
+        }
 
-        while (second < chars.length) {
-            if (prevChar == 0) {
-                prevChar = chars[first];
-                counter = 1;
-            }
+        int firstIndex = 0, secondIndex = 1;
+        char prevChar = chars[0];
+        int counter = 1;
 
-            char nextChar = chars[second];
+        while (secondIndex < chars.length) {
+            char nextChar = chars[secondIndex];
             if (prevChar == nextChar) {
                 counter++;
             } else {
-                // need the number?
+                // need add the counter?
                 if (counter > 1) {
                     if (counter < 10) {
-                        chars[++first] = Character.forDigit(counter, 10);
+                        chars[++firstIndex] = Character.forDigit(counter, 10);
                     } else {
                         String intStr = Integer.toString(counter);
                         for (int i = 0; i < intStr.length(); i++) {
-                            chars[++first] = intStr.charAt(i);
+                            chars[++firstIndex] = intStr.charAt(i);
                         }
                     }
                 }
-                chars[++first] = nextChar;
+                chars[++firstIndex] = nextChar;
                 prevChar = nextChar;
                 counter = 1;
             }
-            second++;
+            secondIndex++;
         }
 
         if (counter > 1) {
             if (counter < 10) {
-                chars[++first] = Character.forDigit(counter, 10);
+                chars[++firstIndex] = Character.forDigit(counter, 10);
             } else {
                 String intStr = Integer.toString(counter);
                 for (int i = 0; i < intStr.length(); i++) {
-                    chars[++first] = intStr.charAt(i);
+                    chars[++firstIndex] = intStr.charAt(i);
                 }
             }
         }
-        return first + 1; // new length
+        return firstIndex + 1; // new length
     }
 }
