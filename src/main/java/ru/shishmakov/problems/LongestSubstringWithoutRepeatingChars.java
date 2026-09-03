@@ -11,19 +11,23 @@ import java.util.Set;
  * 3 - Longest Substring Without Repeating Characters.
  * <p>
  * Given a string 'str', find the length of the <u>longest substring</u> without repeating characters.
- * A substring contains a contiguous non-empty sequence of characters within a string.
+ * A <u>substring</u> contains a contiguous non-empty sequence of characters within a string.
  * <p>
- * Note: 'str' consists of english letters, digits, symbols and spaces. Source 'str' length: [0 .. 5*104]
+ * Note:
+ * <ul>
+ *     <li>'str' consists of english letters, digits, symbols and spaces;</li>
+ *     <li>'str' length: [0 .. 5*104].</li>
+ * </ul>
  * <pre>
  * Example:
- *   str = abcabcbb
- *   substring length = 3 (abc)
+ *     str = abcabcbb
+ *     substring length = 3 (abc)
  *
- *   str = bbbbb
- *   substring length = 1 (b)
+ *     str = bbbbb
+ *     substring length = 1 (b)
  *
- *   str = pwwkew
- *   substring length = 3 (wke or kew)
+ *     str = pwwkew
+ *     substring length = 3 (wke or kew)
  * </pre>
  * <a href="https://redquark.org/leetcode/0003-longest-substring-without-repeating-characters/">Longest Substring Without Repeating Characters: problem solution</a>
  */
