@@ -58,6 +58,7 @@ public class MergeIntervals implements Runnable {
 
         List<int[]> result = new ArrayList<>();
         result.add(intervals[0]);
+        System.out.println("Add first interval: " + Arrays.toString(intervals[0]));
 
         for (int i = 1; i < intervals.length; i++) {
             int[] prevInterval = result.get(result.size() - 1);
@@ -69,9 +70,16 @@ public class MergeIntervals implements Runnable {
             int first2 = nextInterval[0];
             int last2 = nextInterval[1];
             if (first2 > last1) {
+                //  f2 l2
+                // {1, 4}
                 result.add(nextInterval);
+                System.out.println("Add next interval: " + Arrays.toString(nextInterval));
             } else {
+                //  f1 l1   f2 l2
+                // {0, 4}, {1, 4}
+                int[] temp = prevInterval.clone();
                 prevInterval[1] = Math.max(last1, last2);
+                System.out.printf("Extend previous interval from: %s to %s\n", Arrays.toString(temp), Arrays.toString(prevInterval));
             }
         }
         return result.toArray(new int[0][0]);
