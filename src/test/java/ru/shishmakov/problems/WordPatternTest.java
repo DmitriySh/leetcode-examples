@@ -24,7 +24,7 @@ public class WordPatternTest {
 
 
     @ParameterizedTest(name = "pattern [{0}] text [{1}] = false")
-    @CsvSource({"aaaa,dog cat cat dog", "abba,dog cat cat fish", "a,no way"})
+    @CsvSource({"aaaa,dog cat cat dog", "abba,dog cat cat fish", "abca,dog cat cat dog", "a,no way"})
     void stringNotMatchedIfNotFollowsPattern(String pattern, String text) {
         // given
         var wordPattern = new WordPattern(pattern, text);
