@@ -1,5 +1,6 @@
 package ru.shishmakov.problems;
 
+import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,7 +38,7 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
     public static final int[] DEFAULT_ARRAY = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
 
     private final int[] nums;
-    private int payloadSize;
+    private int payloadLength;
 
     public RemoveDuplicatesFromSortedArray(int[] nums) {
         this.nums = nums;
@@ -47,8 +48,8 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
         return nums;
     }
 
-    public int getPayloadSize() {
-        return payloadSize;
+    public int getPayloadLength() {
+        return payloadLength;
     }
 
     @Override
@@ -56,8 +57,9 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
         logger.info("Start removing duplicate elements in array...");
         logger.info("Origin array: {}", nums);
 
-        this.payloadSize = removeDuplicates(nums);
-        logger.info("Result array: {}, size: {}", nums, payloadSize);
+        this.payloadLength = removeDuplicates(nums);
+        logger.info("Result array: {}", nums);
+        logger.info("Payload: {} length: {}", Arrays.copyOf(nums, payloadLength), payloadLength);
     }
 
     private int removeDuplicates(int[] nums) {
@@ -65,16 +67,16 @@ public class RemoveDuplicatesFromSortedArray implements Runnable {
             return nums.length;
         }
 
-        int left = 0;
-        int right = 1;
-        while (right < nums.length) {
-            if (nums[left] != nums[right]) {
-                left++;
-                nums[left] = nums[right];
+        int firstIndex = 0;
+        int secondIndex = 1;
+        while (secondIndex < nums.length) {
+            if (nums[firstIndex] != nums[secondIndex]) {
+                firstIndex++;
+                nums[firstIndex] = nums[secondIndex];
             }
-            right++;
+            secondIndex++;
         }
 
-        return left + 1; // count with zero element
+        return firstIndex + 1; // length with zero element
     }
 }

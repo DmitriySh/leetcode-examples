@@ -15,7 +15,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
         // when
         removeDuplicates.run();
         int[] numsAfter = removeDuplicates.getNums();
-        int payloadSize = removeDuplicates.getPayloadSize();
+        int payloadSize = removeDuplicates.getPayloadLength();
 
         // then
         assertThat(numsBefore)
@@ -35,7 +35,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
         // when
         removeDuplicates.run();
         int[] numsAfter = removeDuplicates.getNums();
-        int payloadSize = removeDuplicates.getPayloadSize();
+        int payloadSize = removeDuplicates.getPayloadLength();
 
         // then
         assertThat(payloadSize)
@@ -53,7 +53,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
         // when
         removeDuplicates.run();
         int[] numsAfter = removeDuplicates.getNums();
-        int payloadSize = removeDuplicates.getPayloadSize();
+        int payloadSize = removeDuplicates.getPayloadLength();
 
         // then
         assertThat(payloadSize)
@@ -71,7 +71,7 @@ public class RemoveDuplicatesFromSortedArrayTest {
         // when
         removeDuplicates.run();
         int[] numsAfter = removeDuplicates.getNums();
-        int payloadSize = removeDuplicates.getPayloadSize();
+        int payloadSize = removeDuplicates.getPayloadLength();
 
         // then
         assertThat(payloadSize)
