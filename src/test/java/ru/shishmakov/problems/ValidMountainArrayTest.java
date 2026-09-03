@@ -39,7 +39,7 @@ public class ValidMountainArrayTest {
     }
 
     @ParameterizedTest(name = "array=[{0}] is not valid")
-    @ValueSource(strings = {"", "1", "03", "12345", "157", "024246531", "01123410"})
+    @ValueSource(strings = {"", "1", "03", "12345", "543210", "157", "024246531", "01123410"})
     void mountainArrayShouldNotBeValid(String source) {
         // given
         int[] array = source.chars().mapToObj(Character::toString).mapToInt(Integer::parseInt).toArray();

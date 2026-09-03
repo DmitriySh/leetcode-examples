@@ -11,9 +11,9 @@ import org.slf4j.LoggerFactory;
  * Given an array of integers, return true if and only if it is a valid mountain array.
  * An input array of integers is valid if:
  * <ul>
- *     <li>array.length >= 3;</li>
- *     <li>have a strictly increasing part of the array (arr[0] < arr[1] < ... < arr[i - 1] < arr[i])</li>
- *     <li>have a strictly decreasing part of the array (arr[i] > arr[i + 1] > ... > arr[arr.length - 1])</li>
+ *     <li>{@code array.length} >= 3;</li>
+ *     <li>have a strictly increasing part of the array {@code arr[0] < arr[1] < ... < arr[i - 1] < arr[i]}</li>
+ *     <li>have a strictly decreasing part of the array {@code arr[i] > arr[i + 1] > ... > arr[arr.length - 1]}</li>
  * </ul>
  *
  * <pre>
@@ -60,22 +60,26 @@ public class ValidMountainArray implements Runnable {
             return false;
         }
 
-        int middle = 0;
+        int top = 0;
         for (int i = 0; i < array.length - 1; i++) {
-            // growth
-            if (array[i] < array[i + 1] && middle == 0) {
-                continue;
+            // check growth
+            if (top == 0 && array[i] < array[i + 1]) {
+                continue; // growth
             } else {
-                middle = i;
+                if(top == 0) {
+                    top = i;
+                    logger.info("Growth part: {}", Arrays.copyOf(array, i + 1));
+                }
             }
 
-            // fall
-            if (array[i] > array[i + 1] && middle != 0) {
-                continue;
+            // check fall
+            if (top != 0 && array[i] > array[i + 1]) {
+                continue; // fall
             } else {
                 return false;
             }
         }
-        return middle != 0;
+
+        return top != 0;
     }
 }
