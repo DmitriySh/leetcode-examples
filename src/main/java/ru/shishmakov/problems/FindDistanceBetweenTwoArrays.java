@@ -60,13 +60,13 @@ public class FindDistanceBetweenTwoArrays implements Runnable {
     }
 
     private static int findTheDistance(int[] array1, int[] array2, int threshold) {
-        System.out.println("Threshold: " + threshold);
-        System.out.println("Origin array1: " + Arrays.toString(array1));
-        System.out.println("Origin array2: " + Arrays.toString(array2));
+        logger.info("Threshold: {}", threshold);
+        logger.info("Origin array1: {}", array1);
+        logger.info("Origin array2: {}", array2);
 
         // {10, 9, 1, 8} => {1, 8, 9, 10}
         Arrays.sort(array2);
-        System.out.println("Sorted array2: " + Arrays.toString(array2));
+        logger.info("Sorted array2: {}", array2);
 
         int distance = 0;
         for (int value : array1) {
@@ -74,14 +74,14 @@ public class FindDistanceBetweenTwoArrays implements Runnable {
             int rightPartRange = value + threshold;
             boolean found = hasValueInRange(array2, leftPartRange, rightPartRange);
             if (found) {
-                System.out.printf(
-                        "Value = %s found in range [%s .. %s] in array %s\n",
-                        value, leftPartRange, rightPartRange, Arrays.toString(array2)
+                logger.info(
+                        "Value = {} found in range [{} .. {}] in array {}",
+                        value, leftPartRange, rightPartRange, array2
                 );
             } else {
-                System.out.printf(
-                        "Value = %s not found in range [%s .. %s] in array %s\n",
-                        value, leftPartRange, rightPartRange, Arrays.toString(array2)
+                logger.info(
+                        "Value = {} not found in range [{} .. {}] in array {}",
+                        value, leftPartRange, rightPartRange, array2
                 );
                 distance++;
             }
@@ -102,7 +102,7 @@ public class FindDistanceBetweenTwoArrays implements Runnable {
         //          0    1    2    3
         //         left-->            right
         while (left < right) {
-            int middle = (left + right) >> 1;
+            int middle = (left + right) >> 1; // divide by 2
             int value = sortedArray[middle];
             if (leftPartRange <= value && value <= rightPartRange) {
                 // within the range

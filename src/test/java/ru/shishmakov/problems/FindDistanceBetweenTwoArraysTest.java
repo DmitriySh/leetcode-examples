@@ -52,13 +52,13 @@ public class FindDistanceBetweenTwoArraysTest {
                         2 // distance
                 ),
                 Arguments.of(
-                        new int[]{4, -3, -7, 0, -10},
+                        new int[]{ -3, 4, -7, 0, -10},
                         new int[]{10},
                         69,
                         0
                 ),
                 Arguments.of(
-                        new int[]{4, -3, -7, 0, -10},
+                        new int[]{4, -3, -10, 0, -7},
                         new int[0],
                         7,
                         5
