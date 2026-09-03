@@ -17,7 +17,8 @@ import java.lang.invoke.MethodHandles;
  *
  * <pre>
  * Example:
- *   text   = "No lemon, no melon!"
+ *   text             = "No lemon, no melon!"
+ *   transformed text = "nolemonnomelon"
  *   valid  = true
  *
  *   text   = "A23"
