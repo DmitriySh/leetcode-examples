@@ -73,47 +73,56 @@ public class ValidIpAddress implements Runnable {
 
     private String validIPAddress(String queryIP) {
         if (queryIP.contains(".")) {  // x1.x2.x3.x4
-            String[] segments = queryIP.split("\\.", -1);
-            if (segments.length != 4) {
-                return "Neither";
-            }
-
-            for (String segment : segments) {
-                // 0 <= xi <= 255
-                if (segment.isEmpty() || segment.length() > 3 || (segment.startsWith("0") && segment.length() > 1)) {
-                    return "Neither";
-                }
-                // digits = "0123456789"
-                if (!segment.chars().allMatch(ch -> '0' <= ch && ch <= '9')) {
-                    return "Neither";
-                }
-                int number = Integer.parseInt(segment);
-                if (!(0 <= number && number <= 255)) {
-                    return "Neither";
-                }
-            }
-            return "IPv4";
+            return matchIpV4(queryIP);
         } else if (queryIP.contains(":")) {  // x1:x2:x3:x4:x5:x6:x7:x8
-            String[] segments = queryIP.split(":", -1);
-            if (segments.length != 8) {
-                return "Neither";
-            }
-
-            for (String segment : segments) {
-                // 1 <= xi.length <= 4
-                if (segment.isEmpty() || segment.length() > 4) {
-                    return "Neither";
-                }
-                // iPv6Chars = "0123456789abcdefABCDEF"
-                if (!segment.chars().map(Character::toLowerCase)
-                        .allMatch(ch -> ('0' <= ch && ch <= '9') || ('a' <= ch && ch <= 'f'))
-                ) {
-                    return "Neither";
-                }
-            }
-            return "IPv6";
+            return matchIpV6(queryIP);
         }
 
         return "Neither";
+    }
+
+    private static String matchIpV4(String queryIP) {
+        String[] segments = queryIP.split("\\.", -1);
+        if (segments.length != 4) {
+            return "Neither";
+        }
+
+        for (String segment : segments) {
+            // 192.168.1.0
+            if (segment.isEmpty() || segment.length() > 3 || (segment.startsWith("0") && segment.length() > 1)) {
+                return "Neither";
+            }
+            // digits = "0123456789"
+            if (!segment.chars().allMatch(ch -> '0' <= ch && ch <= '9')) {
+                return "Neither";
+            }
+            // 0 <= xi <= 255
+            int number = Integer.parseInt(segment);
+            if (!(0 <= number && number <= 255)) {
+                return "Neither";
+            }
+        }
+        return "IPv4";
+    }
+
+    private static String matchIpV6(String queryIP) {
+        String[] segments = queryIP.split(":", -1);
+        if (segments.length != 8) {
+            return "Neither";
+        }
+
+        for (String segment : segments) {
+            // 1 <= xi.length <= 4
+            if (segment.isEmpty() || segment.length() > 4) {
+                return "Neither";
+            }
+            // iPv6Chars = "0123456789abcdefABCDEF"
+            if (!segment.chars()
+                    .allMatch(ch -> ('0' <= ch && ch <= '9') || ('a' <= ch && ch <= 'f') || ('A' <= ch && ch <= 'F'))
+            ) {
+                return "Neither";
+            }
+        }
+        return "IPv6";
     }
 }
