@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
  * </pre>
  * <a href="https://leetcode.ca/2019-09-15-1385-Find-the-Distance-Value-Between-Two-Arrays/">Find the Distance Value Between Two Arrays</a><br/>
  */
-public class FindDistanceValueBetweenTwoArrays implements Runnable {
+public class FindDistanceBetweenTwoArrays implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     public static final int[] DEFAULT_ARRAY1 = new int[]{4, 5, 8};
     public static final int[] DEFAULT_ARRAY2 = new int[]{10, 9, 1, 8};
@@ -38,7 +38,7 @@ public class FindDistanceValueBetweenTwoArrays implements Runnable {
 
     private int distance;
 
-    public FindDistanceValueBetweenTwoArrays(int[] array1, int[] array2, int threshold) {
+    public FindDistanceBetweenTwoArrays(int[] array1, int[] array2, int threshold) {
         this.array1 = array1;
         this.array2 = array2;
         this.threshold = threshold;

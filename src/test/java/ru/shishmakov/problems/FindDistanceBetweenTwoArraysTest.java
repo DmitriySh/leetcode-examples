@@ -8,15 +8,15 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FindDistanceValueBetweenTwoArraysTest {
+public class FindDistanceBetweenTwoArraysTest {
 
     @Test
     void shouldFindDistanceWithDefaultArrays() {
         // given
-        var findDistanceValueBetweenTwoArrays = new FindDistanceValueBetweenTwoArrays(
-                FindDistanceValueBetweenTwoArrays.DEFAULT_ARRAY1,
-                FindDistanceValueBetweenTwoArrays.DEFAULT_ARRAY2,
-                FindDistanceValueBetweenTwoArrays.DEFAULT_THRESHOLD
+        var findDistanceValueBetweenTwoArrays = new FindDistanceBetweenTwoArrays(
+                FindDistanceBetweenTwoArrays.DEFAULT_ARRAY1,
+                FindDistanceBetweenTwoArrays.DEFAULT_ARRAY2,
+                FindDistanceBetweenTwoArrays.DEFAULT_THRESHOLD
         );
 
         // when
@@ -32,7 +32,7 @@ public class FindDistanceValueBetweenTwoArraysTest {
     @MethodSource("validArrays")
     void shouldFindDistance(int[] array1, int[] array2, int threshold, int expectedDistance) {
         // given
-        var findDistanceValueBetweenTwoArrays = new FindDistanceValueBetweenTwoArrays(array1, array2, threshold);
+        var findDistanceValueBetweenTwoArrays = new FindDistanceBetweenTwoArrays(array1, array2, threshold);
 
         // when
         findDistanceValueBetweenTwoArrays.run();

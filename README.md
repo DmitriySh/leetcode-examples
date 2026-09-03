@@ -78,4 +78,4 @@ Result. Parentheses is: valid
   * validMountainArray
   * fizzBuzz
   * maximumProductOfTwoElements
-  
+  * findDistanceBetweenTwoArrays

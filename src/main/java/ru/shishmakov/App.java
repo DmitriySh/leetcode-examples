@@ -4,6 +4,7 @@
 package ru.shishmakov;
 
 import ru.shishmakov.problems.FibonacciNumber;
+import ru.shishmakov.problems.FindDistanceBetweenTwoArrays;
 import ru.shishmakov.problems.FizzBuzz;
 import ru.shishmakov.problems.LongestSubstringWithoutRepeatingChars;
 import ru.shishmakov.problems.MaximumProductTwoElementsArray;
@@ -58,6 +59,11 @@ public class App {
             case "validMountainArray" -> new ValidMountainArray(ValidMountainArray.DEFAULT_ARRAY).run();
             case "fizzBuzz" -> new FizzBuzz(FizzBuzz.DEFAULT_NUMBER).run();
             case "maximumProductOfTwoElements" -> new MaximumProductTwoElementsArray(MaximumProductTwoElementsArray.DEFAULT_ARRAY).run();
+            case "findDistanceBetweenTwoArrays" -> new FindDistanceBetweenTwoArrays(
+                    FindDistanceBetweenTwoArrays.DEFAULT_ARRAY1,
+                    FindDistanceBetweenTwoArrays.DEFAULT_ARRAY2,
+                    FindDistanceBetweenTwoArrays.DEFAULT_THRESHOLD
+            ).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
