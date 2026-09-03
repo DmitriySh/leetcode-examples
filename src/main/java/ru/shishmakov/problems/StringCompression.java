@@ -28,8 +28,7 @@ import java.util.Arrays;
  *   chars length         : 14
  *
  *   compressed chars     : [a, b, 1, 2, c, b, b, b, b, b, b, b, b, c]
- *   new payload part     : [a, b, 1, 2, c]
- *   new payload length   : 5
+ *   payload              : [a, b, 1, 2, c], length = 5
  * </pre>
  *
  * <a href="https://leetcode.ca/2017-02-15-443-String-Compression/">String Compression: problem solution</a>
