@@ -62,15 +62,15 @@ public class ValidAnagram implements Runnable {
 
         // a = 97 ASCII; z = 122 ASCII
         // a - a = 0   ; z - a = 25
-        int[] alphabetCharsCount = new int[ENGLISH_ALPHABET_COUNT];
-        logger.info("alphabetChars before = {}", Arrays.toString(alphabetCharsCount));
+        int[] alphabetChars = new int[ENGLISH_ALPHABET_COUNT];
+        logger.info("alphabetChars before = {}", Arrays.toString(alphabetChars));
         for (int i = 0; i < sourceText.length(); i++) {
-            alphabetCharsCount[sourceText.charAt(i) - 'a']++; // [0 .. 25]
-            alphabetCharsCount[targetText.charAt(i) - 'a']--; // [0 .. 25]
+            alphabetChars[sourceText.charAt(i) - 'a']++; // [0 .. 25]
+            alphabetChars[targetText.charAt(i) - 'a']--; // [0 .. 25]
         }
 
-        logger.info("alphabetChars after = {}", Arrays.toString(alphabetCharsCount));
-        for (int count : alphabetCharsCount) {
+        logger.info("alphabetChars after = {}", Arrays.toString(alphabetChars));
+        for (int count : alphabetChars) {
             if (count != 0) {
                 return false;
             }
