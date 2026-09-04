@@ -70,14 +70,19 @@ public class MoveZeroes implements Runnable {
      * @param nums - source integer array
      */
     private void moveZeroes(int[] nums) {
-        int a = 0;
-        for (int b = 0; b < nums.length; b++) {
+        int a = 0, b = 0;
+
+        // 0 4 2 0
+        // 4 0 2 0
+        // 4 2 0 0
+        while (b < nums.length) {
             if (nums[b] != 0) {
                 int temp = nums[a];
                 nums[a] = nums[b];
                 nums[b] = temp;
                 a++;
             }
+            b++;
         }
     }
 }
