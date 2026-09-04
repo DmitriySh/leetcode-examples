@@ -10,7 +10,7 @@ import java.lang.invoke.MethodHandles;
  * <p>
  * The Fibonacci numbers, commonly denoted 'F(n)' form a sequence, called the <u>Fibonacci sequence</u>,
  * such that each number is the sum of the two preceding ones, starting from '0' and '1'.
- * You need calculate Fibonacci number based on the index number.
+ * You need calculate Fibonacci number based on the <u>index number</u>.
  * <p>
  * Note: <br/>
  * F(0) = 0, F(1) = 1 <br/>
@@ -64,7 +64,7 @@ public class FibonacciNumber implements Runnable {
         int a = 0, b = 1;
         while (number > 0) {
             int c = a + b; // 1=0+1 ; 2=1+1 ; 3=2+1
-            logger.info("fib({}) = fib({}) + fib({})", c, a, b);
+            logger.info("For index: {} function fib({}) = fib({}) + fib({})", number, c, b, a);
             a = b;
             b = c;
             number--;
