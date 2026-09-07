@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ValidPalindromeTest {
 
-    @ParameterizedTest(name = "palindrome {0} = true")
+    @ParameterizedTest(name = "param={0}")
     @ValueSource(strings = {"abba", "Madam, in Eden, I’m Adam.", "No lemon, no melon!", "A23, 32a", "a", "", "  "})
     void stringValidIfTextIsPalindrome(String param) {
         // given
@@ -22,8 +22,8 @@ public class ValidPalindromeTest {
                 .isTrue();
     }
 
-    @ParameterizedTest(name = "palindrome {0} = false")
-    @ValueSource(strings = {"", "ab", "test", "My mother", "No lemon", "123"})
+    @ParameterizedTest(name = "param={0}")
+    @ValueSource(strings = {"ab", "test", "My mother", "No lemon", "123"})
     void stringNotValidIfTextIsNotPalindrome(String param) {
         // given
         var palindrome = new ValidPalindrome(param);
