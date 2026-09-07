@@ -22,6 +22,7 @@ This is a code examples with my solutions for Leetcode problems.
  * [191 - Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits) (the number of 1 bits in unsigned integer)
  * [200 - Number of Islands](https://leetcode.com/problems/number-of-islands) (counting the number of islands in the grid NxN)
  * [206 - Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) (reverse the linked list)
+ * [228 - Summary Ranges](https://leetcode.com/problems/summary-ranges/description/) (collapsing array into a string of ranges)
  * [231 - Power of two](https://leetcode.com/problems/power-of-two) (number is a power of two or not)
  * [242 - Validate Anagram](https://leetcode.com/problems/valid-anagram) (text is a anagram, true or false)
  * [283 - Move Zeroes](https://leetcode.com/problems/move-zeroes) (move all 0's to the end)
@@ -79,3 +80,4 @@ Result. Parentheses is: valid
   * fizzBuzz
   * maximumProductOfTwoElements
   * findDistanceBetweenTwoArrays
+  * summaryRanges

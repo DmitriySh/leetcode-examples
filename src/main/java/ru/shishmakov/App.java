@@ -21,6 +21,7 @@ import ru.shishmakov.problems.ReverseLinkedList;
 import ru.shishmakov.problems.Search2DMatrix;
 import ru.shishmakov.problems.Sqrt;
 import ru.shishmakov.problems.StringCompression;
+import ru.shishmakov.problems.SummaryRanges;
 import ru.shishmakov.problems.ValidAnagram;
 import ru.shishmakov.problems.ValidIpAddress;
 import ru.shishmakov.problems.ValidMountainArray;
@@ -64,6 +65,7 @@ public class App {
                     FindDistanceBetweenTwoArrays.DEFAULT_ARRAY2,
                     FindDistanceBetweenTwoArrays.DEFAULT_THRESHOLD
             ).run();
+            case "summaryRanges" -> new SummaryRanges(SummaryRanges.DEFAULT_ARRAY).run();
             default -> throw new IllegalArgumentException("Unavailable param: " + param);
         }
     }
