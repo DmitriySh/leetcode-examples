@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
 
+/**
+ * Lazy Singleton with static initialization
+ */
 public class LazySingleton {
     private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
